@@ -142,7 +142,7 @@ class SliderMenuContainer extends StatefulWidget {
 
 class SliderMenuContainerState extends State<SliderMenuContainer>
     with TickerProviderStateMixin {
-  static const double WIDTH_GESTURE = 50.0;
+  static const double WIDTH_GESTURE = 0.0;
   static const double HEIGHT_GESTURE = 30.0;
   static const double BLUR_SHADOW = 20.0;
   double slideAmount = 0.0;
@@ -167,7 +167,7 @@ class SliderMenuContainerState extends State<SliderMenuContainer>
       : _animationDrawerController!.forward();
 
   /// Open drawer
-  void openDrawer           () => _animationDrawerController!.forward();
+  void openDrawer() => _animationDrawerController!.forward();
 
   /// Close drawer
   void closeDrawer() => _animationDrawerController!.reverse();
@@ -254,20 +254,26 @@ class SliderMenuContainerState extends State<SliderMenuContainer>
               child: Column(
                 children: <Widget>[
                   if (widget.hasAppBar)
-                    SliderAppBar(
-                      slideDirection: widget.slideDirection,
-                      onTap: () => toggle(),
-                      appBarHeight: widget.appBarHeight,
-                      animationController: _animationDrawerController!,
-                      appBarColor: widget.appBarColor,
-                      appBarPadding: widget.appBarPadding!,
-                      drawerIcon: widget.drawerIcon,
-                      drawerIconColor: widget.drawerIconColor,
-                      drawerIconSize: widget.drawerIconSize,
-                      isTitleCenter: widget.isTitleCenter,
-                      splashColor: widget.splashColor,
-                      title: widget.title,
-                      trailing: widget.trailing,
+                    Material(
+                      elevation: 5,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: SliderAppBar(
+                          slideDirection: widget.slideDirection,
+                          onTap: () => toggle(),
+                          appBarHeight: widget.appBarHeight,
+                          animationController: _animationDrawerController!,
+                          appBarColor: widget.appBarColor,
+                          appBarPadding: widget.appBarPadding!,
+                          drawerIcon: widget.drawerIcon,
+                          drawerIconColor: widget.drawerIconColor,
+                          drawerIconSize: widget.drawerIconSize,
+                          isTitleCenter: widget.isTitleCenter,
+                          splashColor: widget.splashColor,
+                          title: widget.title,
+                          trailing: widget.trailing,
+                        ),
+                      ),
                     ),
                   Expanded(child: widget.sliderMain),
                 ],

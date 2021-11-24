@@ -8,9 +8,9 @@ class SlideMenuBar extends StatelessWidget {
 
   const SlideMenuBar(
       {Key? key,
-        required this.slideDirection,
-        required this.sliderMenuOpenSize,
-        required this.sliderMenu})
+      required this.slideDirection,
+      required this.sliderMenuOpenSize,
+      required this.sliderMenu})
       : super(key: key);
 
   @override
@@ -29,6 +29,7 @@ class SlideMenuBar extends StatelessWidget {
     }
   }
 }
+
 class SliderAppBar extends StatelessWidget {
   final EdgeInsets appBarPadding;
   final Color appBarColor;
@@ -46,19 +47,19 @@ class SliderAppBar extends StatelessWidget {
 
   const SliderAppBar(
       {Key? key,
-        this.appBarPadding = const EdgeInsets.only(top: 24),
-        this.appBarColor = Colors.blue,
-        this.drawerIcon,
-        this.splashColor = Colors.black,
-        this.drawerIconColor = Colors.black87,
-        this.drawerIconSize = 27,
-        required this.animationController,
-        required this.onTap,
-        required this.title,
-        required this.isTitleCenter,
-        this.trailing,
-        required this.slideDirection,
-        required this.appBarHeight})
+      this.appBarPadding = const EdgeInsets.only(top: 24),
+      this.appBarColor = Colors.blue,
+      this.drawerIcon,
+      this.splashColor = Colors.black,
+      this.drawerIconColor = Colors.black87,
+      this.drawerIconSize = 27,
+      required this.animationController,
+      required this.onTap,
+      required this.title,
+      required this.isTitleCenter,
+      this.trailing,
+      required this.slideDirection,
+      required this.appBarHeight})
       : super(key: key);
 
   @override
@@ -75,19 +76,23 @@ class SliderAppBar extends StatelessWidget {
 
   List<Widget> appBar() {
     List<Widget> list = [
-      drawerIcon ??IconButton(
-          splashColor: splashColor,
-          icon: AnimatedIcon(
-              icon: AnimatedIcons.menu_close,
-              color: drawerIconColor,
-              size: drawerIconSize,
-              progress: animationController),
-          onPressed: () => onTap()),
+      GestureDetector(
+        onTap: onTap,
+        child: drawerIcon ??
+            IconButton(
+                splashColor: splashColor,
+                icon: AnimatedIcon(
+                    icon: AnimatedIcons.menu_close,
+                    color: drawerIconColor,
+                    size: drawerIconSize,
+                    progress: animationController),
+                onPressed: () => onTap()),
+      ),
       Expanded(
         child: isTitleCenter
             ? Center(
-          child: title,
-        )
+                child: title,
+              )
             : title,
       ),
       trailing ??
