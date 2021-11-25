@@ -1,0 +1,179 @@
+import 'dart:ui';
+
+import 'package:flutter/material.dart';
+import 'package:southwind/UI/home/career_tab/components/career_sub_tabs.dart';
+import 'package:southwind/UI/theme/apptheme.dart';
+
+class CareerTab extends StatelessWidget {
+  const CareerTab({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        CareerSubTab(),
+        Expanded(child: CareerPath()),
+      ],
+    );
+  }
+}
+
+class CareerPath extends StatefulWidget {
+  CareerPath({Key? key}) : super(key: key);
+
+  @override
+  _CareerPathState createState() => _CareerPathState();
+}
+
+class _CareerPathState extends State<CareerPath> {
+  @override
+  Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: Column(
+        children: [
+          // SizedBox(
+          //   height: 10,
+          // ),
+          // SizedBox(
+          //   height: 10,
+          // ),
+          Expanded(
+            child: ListView.builder(
+              padding: EdgeInsets.only(top: 0, bottom: 60),
+              itemBuilder: (context, index) {
+                if (index == 0) {
+                  return Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Color(0xFF53ac54),
+
+                            // color: Color(0xFF25AA25),
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 20),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "21 \n STEPS LEFT",
+                                style: TextStyle(
+                                    fontSize: 18,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
+                                textAlign: TextAlign.center,
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              SizedBox(
+                                width: .5,
+                                height: 55,
+                                child: Container(
+                                  color: Colors.white,
+                                ),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    "Certified Sales Leader",
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                  Icon(
+                                    Icons.arrow_drop_down,
+                                    color: Colors.white,
+                                  )
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      SingleCollection(collections[index]),
+                    ],
+                  );
+                }
+                return SingleCollection(collections[index]);
+              },
+              itemCount: collections.length,
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class SingleCollection extends StatelessWidget {
+  final QuestionCollection collection;
+  const SingleCollection(this.collection, {Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final double radius = 12;
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4),
+      child: Material(
+        elevation: 1,
+        borderRadius: BorderRadius.circular(radius),
+        child: Container(
+          decoration: BoxDecoration(
+              color: primarySwatch[100],
+              borderRadius: BorderRadius.circular(radius),
+              border: Border.all(color: primaryColor, width: .5)),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 4),
+            child: ListTile(
+              title: Text(
+                collection.title,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontSize: 13,
+                  color: primarySwatch[900],
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              trailing: Icon(
+                Icons.arrow_right_outlined,
+                color: primarySwatch[900],
+              ),
+              subtitle: Text(
+                "${collection.totalQuestion} Question",
+                style: TextStyle(color: primarySwatch[500]),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class QuestionCollection {
+  final String title;
+  final int totalQuestion;
+  QuestionCollection({this.title = "", this.totalQuestion = 0});
+}
+
+final List<QuestionCollection> collections = [
+  QuestionCollection(
+      title: "Being Exceptional at Accountabilty", totalQuestion: 12),
+  QuestionCollection(title: "Cautious Driving", totalQuestion: 10),
+  QuestionCollection(title: "Closing an On Site Estimate", totalQuestion: 4),
+  QuestionCollection(
+      title: "Coaching Relational vs. Transactional", totalQuestion: 20),
+  QuestionCollection(
+      title: "Being Exceptional at Accountabilty", totalQuestion: 12),
+  QuestionCollection(title: "Cautious Driving", totalQuestion: 10),
+];

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:southwind/UI/home/home_screen.dart';
 import 'package:southwind/UI/home/news_tab/news_screen.dart';
 import 'package:southwind/UI/theme/apptheme.dart';
 import 'package:southwind/component/bottom_navigation.dart';
@@ -7,14 +8,14 @@ import 'package:southwind/component/menu_widget.dart';
 import 'package:southwind/component/navigationtheme.dart';
 import 'package:southwind/component/sidemenu.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class CustomDrawer extends StatefulWidget {
+  const CustomDrawer({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<CustomDrawer> createState() => _CustomDrawerState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _CustomDrawerState extends State<CustomDrawer> {
   Widget screenView = NewsScreen();
   DrawerIndex drawerIndex = DrawerIndex.HOME;
   int selectedIndex = 0;
@@ -25,7 +26,6 @@ class _HomePageState extends State<HomePage> {
   late String title;
   @override
   void initState() {
-    // TODO: implement initState
     title = "Southwind";
     super.initState();
   }
@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
             changeIndex(drawerIndexdata);
             //callback from drawer for replace screen as user need with passing DrawerIndex(Enum index)
           },
-          screenView: NewsScreen(), drawerIsOpen: (bool) {},
+          screenView: HomeScreen(), drawerIsOpen: (bool) {},
           //we replace screen view as we need on navigate starting screens like MyHomePage, HelpScreen, FeedbackScreen, etc...
         ),
       ),

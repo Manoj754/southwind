@@ -88,42 +88,42 @@ class _NewsScreenState extends State<NewsScreen> {
         },
         itemCount: posts.length,
       ),
-      bottomNavigationBar: FFNavigationBar(
-        theme: FFNavigationBarTheme(
-          barBackgroundColor: Colors.white,
-          selectedItemBackgroundColor: primarySwatch[50]!,
-          selectedItemIconColor: Colors.black,
-          selectedItemLabelColor: Colors.black,
-        ),
-        selectedIndex: selectedIndex,
-        onSelectTab: (index) {
-          setState(() {
-            selectedIndex = index;
-          });
-        },
-        items: [
-          FFNavigationBarItem(
-            iconData: Icons.feed_outlined,
-            label: 'News',
-          ),
-          FFNavigationBarItem(
-            iconData: Icons.schedule_outlined,
-            label: 'Schedule',
-          ),
-          FFNavigationBarItem(
-            iconData: Icons.school_outlined,
-            label: 'Career',
-          ),
-          FFNavigationBarItem(
-            iconData: Icons.groups_outlined,
-            label: 'Team',
-          ),
-          FFNavigationBarItem(
-            iconData: Icons.account_circle_outlined,
-            label: 'Settings',
-          ),
-        ],
-      ),
+      // bottomNavigationBar: FFNavigationBar(
+      //   theme: FFNavigationBarTheme(
+      //     barBackgroundColor: Colors.white,
+      //     selectedItemBackgroundColor: primarySwatch[50]!,
+      //     selectedItemIconColor: Colors.black,
+      //     selectedItemLabelColor: Colors.black,
+      //   ),
+      //   selectedIndex: selectedIndex,
+      //   onSelectTab: (index) {
+      //     setState(() {
+      //       selectedIndex = index;
+      //     });
+      //   },
+      //   items: [
+      //     FFNavigationBarItem(
+      //       iconData: Icons.feed_outlined,
+      //       label: 'News',
+      //     ),
+      //     FFNavigationBarItem(
+      //       iconData: Icons.schedule_outlined,
+      //       label: 'Schedule',
+      //     ),
+      //     FFNavigationBarItem(
+      //       iconData: Icons.school_outlined,
+      //       label: 'Career',
+      //     ),
+      //     FFNavigationBarItem(
+      //       iconData: Icons.groups_outlined,
+      //       label: 'Team',
+      //     ),
+      //     FFNavigationBarItem(
+      //       iconData: Icons.account_circle_outlined,
+      //       label: 'Settings',
+      //     ),
+      //   ],
+      // ),
     );
   }
 }
@@ -309,7 +309,7 @@ class _ImageIndicatorState extends State<ImageIndicator> {
 
   setScoll() {
     controller.animateTo(((6 - 2) * currentIndex).toDouble(),
-        duration: Duration(milliseconds: 80), curve: Curves.easeIn);
+        duration: Duration(milliseconds: 80), curve: Curves.linear);
   }
 
   @override
@@ -338,7 +338,7 @@ class _ImageIndicatorState extends State<ImageIndicator> {
                             color:
                                 (Theme.of(context).brightness == Brightness.dark
                                         ? Colors.white
-                                        : Colors.black)
+                                        : primaryColor)
                                     .withOpacity(a == currentIndex ? .9 : 0.4)),
                       )
                   ],
