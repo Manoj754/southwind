@@ -55,20 +55,19 @@ class _CareerPathState extends State<CareerPath> {
                             // color: Color(0xFF25AA25),
                             borderRadius: BorderRadius.circular(10)),
                         child: Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 20),
+                          padding: const EdgeInsets.symmetric(vertical: 10),
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Text(
-                                "21 \n STEPS LEFT",
-                                style: TextStyle(
-                                    fontSize: 18,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold),
-                                textAlign: TextAlign.center,
+                              SizedBox(
+                                width: 20,
+                              ),
+                              Image.asset(
+                                "assets/images/premiumquality.png",
+                                height: 50,
                               ),
                               SizedBox(
-                                width: 10,
+                                width: 20,
                               ),
                               SizedBox(
                                 width: .5,
@@ -80,16 +79,29 @@ class _CareerPathState extends State<CareerPath> {
                               SizedBox(
                                 width: 10,
                               ),
-                              Row(
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "Certified Sales Leader",
-                                    style: TextStyle(color: Colors.white),
+                                    "21 STEPS LEFT",
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold),
+                                    textAlign: TextAlign.center,
                                   ),
-                                  Icon(
-                                    Icons.arrow_drop_down,
-                                    color: Colors.white,
-                                  )
+                                  Row(
+                                    children: [
+                                      Text(
+                                        "Certified Sales Leader",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                      Icon(
+                                        Icons.arrow_drop_down,
+                                        color: Colors.white,
+                                      )
+                                    ],
+                                  ),
                                 ],
                               ),
                             ],
@@ -124,15 +136,15 @@ class SingleCollection extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4),
       child: Material(
-        elevation: 1,
+        elevation: 3,
         borderRadius: BorderRadius.circular(radius),
         child: Container(
           decoration: BoxDecoration(
-              color: primarySwatch[100],
+              // color: primarySwatch[100],
               borderRadius: BorderRadius.circular(radius),
               border: Border.all(color: primaryColor, width: .5)),
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 4),
+            padding: const EdgeInsets.symmetric(vertical: 0),
             child: ListTile(
               title: Text(
                 collection.title,
@@ -145,7 +157,7 @@ class SingleCollection extends StatelessWidget {
                 ),
               ),
               trailing: Icon(
-                Icons.arrow_right_outlined,
+                Icons.arrow_forward_ios,
                 color: primarySwatch[900],
               ),
               subtitle: Text(

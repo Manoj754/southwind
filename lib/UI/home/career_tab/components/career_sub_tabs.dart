@@ -36,8 +36,10 @@ class _CareerSubTabState extends State<CareerSubTab> {
                     decoration: BoxDecoration(
                         color: selectedIndex == i
                             ? primarySwatch[700]
-                            : primarySwatch[200],
-                        borderRadius: BorderRadius.circular(1000)),
+                            : Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                        border:
+                            Border.all(color: primarySwatch[900]!, width: .5)),
                     child: Center(
                         child: Padding(
                       padding: const EdgeInsets.symmetric(
@@ -46,10 +48,13 @@ class _CareerSubTabState extends State<CareerSubTab> {
                         tabs[i],
                         maxLines: 1,
                         overflow: TextOverflow.visible,
-                        style: TextStyle(
-                            color: selectedIndex != i
-                                ? primarySwatch[900]
-                                : Colors.white),
+                        style: selectedIndex != i
+                            ? TextStyle(
+                                color: primarySwatch[900],
+                                fontWeight: FontWeight.bold)
+                            : TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
                       ),
                     )),
                   ),
