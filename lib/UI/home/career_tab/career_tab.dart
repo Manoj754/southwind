@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:southwind/UI/home/career_tab/components/career_sub_tabs.dart';
 import 'package:southwind/UI/theme/apptheme.dart';
+import 'package:southwind/routes/routes.dart';
 
 class CareerTab extends StatelessWidget {
   const CareerTab({Key? key}) : super(key: key);
@@ -135,34 +136,39 @@ class SingleCollection extends StatelessWidget {
     final double radius = 12;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4),
-      child: Material(
-        elevation: 3,
-        borderRadius: BorderRadius.circular(radius),
-        child: Container(
-          decoration: BoxDecoration(
-              // color: primarySwatch[100],
-              borderRadius: BorderRadius.circular(radius),
-              border: Border.all(color: primaryColor, width: .5)),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 0),
-            child: ListTile(
-              title: Text(
-                collection.title,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  fontSize: 13,
-                  color: primarySwatch[900],
-                  fontWeight: FontWeight.w600,
+      child: InkWell(
+        onTap: () {
+          Navigator.pushNamed(context, Routes.QuestionPage);
+        },
+        child: Material(
+          elevation: 3,
+          borderRadius: BorderRadius.circular(radius),
+          child: Container(
+            decoration: BoxDecoration(
+                // color: primarySwatch[100],
+                borderRadius: BorderRadius.circular(radius),
+                border: Border.all(color: primaryColor, width: .5)),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 0),
+              child: ListTile(
+                title: Text(
+                  collection.title,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 13,
+                    color: primarySwatch[900],
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
-              ),
-              trailing: Icon(
-                Icons.arrow_forward_ios,
-                color: primarySwatch[900],
-              ),
-              subtitle: Text(
-                "${collection.totalQuestion} Question",
-                style: TextStyle(color: primarySwatch[500]),
+                trailing: Icon(
+                  Icons.arrow_forward_ios,
+                  color: primarySwatch[900],
+                ),
+                subtitle: Text(
+                  "${collection.totalQuestion} Question",
+                  style: TextStyle(color: primarySwatch[500]),
+                ),
               ),
             ),
           ),

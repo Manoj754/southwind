@@ -38,6 +38,7 @@ dependencies:
   carousel_slider: ^4.0.0
   google_fonts:
   flutter_advanced_drawer: ^1.2.4
+  video_player: ^2.2.2
 dev_dependencies:
   flutter_test:
     sdk: flutter

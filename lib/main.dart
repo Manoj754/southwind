@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:southwind/UI/home/career_tab/page/summary_screen.dart';
 import 'package:southwind/UI/home/custom_drawer.dart';
 import 'package:southwind/UI/theme/apptheme.dart';
 import 'package:southwind/component/bottom_navigation.dart';
 import 'package:southwind/component/navigationtheme.dart';
+import 'package:southwind/routes/routes.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -16,14 +19,24 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Southwind',
       theme: ThemeData(
+        brightness: Brightness.light,
         // scaffoldBackgroundColor: primarySwatch[50],
         // fontFamily: 'Poppins',
         appBarTheme: AppBarTheme(
             backgroundColor: primaryColor,
             iconTheme: IconThemeData(color: Colors.white)),
-        textTheme: GoogleFonts.poppinsTextTheme(),
+        textTheme: GoogleFonts.poppinsTextTheme(TextTheme(
+            bodyText1: TextStyle(
+                fontWeight: FontWeight.w600,
+                fontSize: 18,
+                color: primarySwatch[900]),
+            bodyText2: TextStyle(
+                fontWeight: FontWeight.w400,
+                fontSize: 16,
+                color: primarySwatch[900]))),
         // iconTheme: IconThemeData(color: primarySwatch[700]),
         // This is the theme of your application.
         //
@@ -36,6 +49,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: generateMaterialColor(primaryColor),
       ),
+      onGenerateRoute: Routes.onRouteGenerate,
       home: CustomDrawer(),
     );
   }

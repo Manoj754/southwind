@@ -11,7 +11,7 @@ class CareerSubTab extends StatefulWidget {
 }
 
 class _CareerSubTabState extends State<CareerSubTab> {
-  List<String> tabs = ['Career path', 'Submited', 'Completed'];
+  List<String> tabs = ['Career', 'Submited', 'Completed'];
   int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
