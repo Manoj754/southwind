@@ -33,6 +33,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       //  appBar: AppBar(
       //   title: Text(
       //     "Southwind".toUpperCase(),

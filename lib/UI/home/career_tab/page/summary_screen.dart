@@ -92,6 +92,7 @@ class SummaryScreen extends StatelessWidget {
               child: Row(
                 children: [
                   CommonButton(
+                    isExpanded: true,
                     ontap: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {

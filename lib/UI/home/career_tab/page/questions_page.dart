@@ -144,6 +144,7 @@ class _QuestionsPageState extends State<QuestionsPage> {
                 child: Row(
                   children: [
                     CommonButton(
+                      isExpanded: true,
                       lable: "Previous",
                       isLeading: true,
                       ontap: () {
@@ -162,6 +163,7 @@ class _QuestionsPageState extends State<QuestionsPage> {
                       ),
                     ),
                     CommonButton(
+                      isExpanded: true,
                       lable: "Next",
                       ontap: () {
                         // currentQuestion++;

@@ -39,6 +39,9 @@ dependencies:
   google_fonts:
   flutter_advanced_drawer: ^1.2.4
   video_player: ^2.2.2
+  table_calendar: ^3.0.0
+  syncfusion_flutter_calendar: ^19.3.55
+  better_player: ^0.0.73
 dev_dependencies:
   flutter_test:
     sdk: flutter

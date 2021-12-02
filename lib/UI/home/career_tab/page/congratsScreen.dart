@@ -70,30 +70,30 @@ class CongratsScreen extends StatelessWidget {
                                       fontWeight: FontWeight.normal),
                                 ),
                               ),
-                              Center(
-                                child: RichText(
-                                    text: TextSpan(children: [
-                                  TextSpan(
-                                      text: "You attempted ",
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodyText1!
-                                          .copyWith(
-                                            color: Colors.black,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.normal,
-                                          )),
-                                  TextSpan(
-                                      text: "5 questions",
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodyText1!
-                                          .copyWith(
-                                            color: primarySwatch[900],
-                                            fontWeight: FontWeight.w100,
-                                          ))
-                                ])),
-                              )
+                              // Center(
+                              //   child: RichText(
+                              //       text: TextSpan(children: [
+                              //     TextSpan(
+                              //         text: "You attempted ",
+                              //         style: Theme.of(context)
+                              //             .textTheme
+                              //             .bodyText1!
+                              //             .copyWith(
+                              //               color: Colors.black,
+                              //               fontSize: 16,
+                              //               fontWeight: FontWeight.normal,
+                              //             )),
+                              //     TextSpan(
+                              //         text: "5 questions",
+                              //         style: Theme.of(context)
+                              //             .textTheme
+                              //             .bodyText1!
+                              //             .copyWith(
+                              //               color: primarySwatch[900],
+                              //               fontWeight: FontWeight.w100,
+                              //             ))
+                              //   ])),
+                              // )
                             ],
                           ),
                         ),

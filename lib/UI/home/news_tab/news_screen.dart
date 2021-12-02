@@ -254,15 +254,16 @@ class _FeedPostState extends State<FeedPost> {
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyText1!
-                                .copyWith(fontWeight: FontWeight.w600)),
-                        TextSpan(
-                            text: widget.post.message,
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyText1!
                                 .copyWith(
-                                    fontWeight: FontWeight.normal,
-                                    color: Colors.black.withOpacity(.8))),
+                                    fontWeight: FontWeight.w600, fontSize: 14)),
+                        TextSpan(
+                          text: widget.post.message,
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 14,
+                            color: Colors.black.withOpacity(.8),
+                          ),
+                        ),
                       ],
                     )),
                   )
