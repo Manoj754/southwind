@@ -51,12 +51,16 @@ class SingleChatScreen extends StatelessWidget {
             // )
           ],
         ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Icon(Icons.info_outline),
-          )
-        ],
+        // actions: [
+        //   Padding(
+        //     padding: const EdgeInsets.symmetric(horizontal: 20),
+        //     child: InkWell(
+        //         onTap: () {
+        //           Navigator.pushNamed(context, '/ProfileInfo');
+        //         },
+        //         child: Icon(Icons.info_outline)),
+        //   )
+        // ],
       ),
       body: Container(
         height: MediaQuery.of(context).size.height,
@@ -149,10 +153,10 @@ class SingleChatScreen extends StatelessWidget {
 
 class SingleMessage extends StatelessWidget {
   final int index;
+  bool? isGroup;
   final MessageModel messageModel;
-  const SingleMessage(
-      {required this.index, required this.messageModel, Key? key})
-      : super(key: key);
+  SingleMessage(
+      {required this.index, required this.messageModel, this.isGroup = false});
 
   @override
   Widget build(BuildContext context) {
@@ -182,23 +186,47 @@ class SingleMessage extends StatelessWidget {
                   maxWidth: MediaQuery.of(context).size.width * .8),
               child: Card(
                 shape: RoundedRectangleBorder(borderRadius: borderRadius),
-                child: Builder(builder: (context) {
-                  switch (messageModel.messageType) {
-                    case MessageType.TEXT:
-                      return TextMessage(
-                          messageModel: messageModel,
-                          borderRadius: borderRadius);
+                child: Padding(
+                  padding: isGroup! && isLeft
+                      ? EdgeInsets.fromLTRB(8, 0, 8, 8)
+                      : EdgeInsets.all(0),
+                  child: Column(
+                    crossAxisAlignment: isLeft
+                        ? CrossAxisAlignment.start
+                        : CrossAxisAlignment.end,
+                    children: [
+                      if (isGroup! && isLeft)
+                        Column(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.fromLTRB(8, 2, 8, 4),
+                              child: Text(
+                                messageModel.sender,
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ],
+                        ),
+                      Builder(builder: (context) {
+                        switch (messageModel.messageType) {
+                          case MessageType.TEXT:
+                            return TextMessage(
+                                messageModel: messageModel,
+                                borderRadius: borderRadius);
 
-                    case MessageType.IMAGE:
-                      return ImageMessage(
-                        messageModel: messageModel,
-                      );
-                    case MessageType.FILE:
-                      return FileMessage(
-                        radius: borderRadius,
-                      );
-                  }
-                }),
+                          case MessageType.IMAGE:
+                            return ImageMessage(
+                              messageModel: messageModel,
+                            );
+                          case MessageType.FILE:
+                            return FileMessage(
+                              radius: borderRadius,
+                            );
+                        }
+                      }),
+                    ],
+                  ),
+                ),
               ),
             ),
             if (!isLeft) _getProfile,
@@ -279,9 +307,7 @@ class ImageMessage extends StatelessWidget {
       child: Container(
         child: ClipRRect(
           borderRadius: borderRadius,
-          child: Hero(
-              tag: messageModel.profile,
-              child: Image.network(messageModel.profile)),
+          child: Image.network(messageModel.profile),
         ),
       ),
     );
@@ -296,8 +322,8 @@ class FileMessage extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Container(
-      height: size.width / 4,
-      width: size.width / 4,
+      height: size.width / 4.5,
+      width: size.width / 4.5,
       child: Stack(
         children: [
           Center(
@@ -314,7 +340,7 @@ class FileMessage extends StatelessWidget {
               child: Icon(
                 Icons.download_for_offline_outlined,
                 size: 50,
-                color: Colors.white,
+                color: Colors.white.withOpacity(0.8),
                 // color: primarySwatch[900],
               ),
             ),
@@ -363,10 +389,7 @@ class ShowImageScreen extends StatelessWidget {
         backgroundColor: primaryColor,
         elevation: 20,
       ),
-      body: Center(
-          child: Hero(
-              tag: messageModel.profile,
-              child: Image.network(messageModel.profile))),
+      body: Center(child: Image.network(messageModel.profile)),
     );
   }
 }
