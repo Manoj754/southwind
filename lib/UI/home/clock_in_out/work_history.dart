@@ -31,7 +31,7 @@ class _WorkHistoryState extends State<WorkHistory> {
     final double dotWidth = 5;
     final double rowHeight = 35;
     return Scaffold(
-      appBar: CommonAppbar(),
+      // appBar: CommonAppbar(),
       body: Container(
         child: Column(
           children: [

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:southwind/UI/home/home_screen.dart';
 import 'package:southwind/UI/home/news_tab/news_screen.dart';
 import 'package:southwind/UI/theme/apptheme.dart';
+import 'package:southwind/UI/time_card/time_card.dart';
 import 'package:southwind/component/bottom_navigation.dart';
 import 'package:southwind/component/drawe_controller.dart';
 import 'package:southwind/component/menu_widget.dart';
@@ -30,6 +31,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
     title = "Southwind";
     super.initState();
   }
+  // Widget screenView = HomeScreen(onindexChange: onindexChange)
 
   @override
   Widget build(BuildContext context) {
@@ -52,12 +54,13 @@ class _CustomDrawerState extends State<CustomDrawer> {
             changeIndex(drawerIndexdata);
             //callback from drawer for replace screen as user need with passing DrawerIndex(Enum index)
           },
-          screenView: HomeScreen(
-            onindexChange: (i) {
-              currentBottomBarIndex = i;
-              setState(() {});
-            },
-          ),
+          screenView: TimeCardScreen(),
+          // screenView: HomeScreen(
+          //   onindexChange: (i) {
+          //     currentBottomBarIndex = i;
+          //     setState(() {});
+          //   },
+          // ),
           drawerIsOpen: (bool) {},
           //we replace screen view as we need on navigate starting screens like MyHomePage, HelpScreen, FeedbackScreen, etc...
         ),

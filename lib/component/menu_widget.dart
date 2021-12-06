@@ -67,6 +67,7 @@ class MenuWidget extends StatelessWidget {
                 sliderItem('Surveys', Icons.analytics_outlined),
                 sliderItem('Library', Icons.local_library_outlined),
                 sliderItem('Incentives', Icons.paid_outlined),
+                sliderItem('Tim Card', Icons.timer),
                 sliderItem('Leaderboard', Icons.leaderboard_outlined)
               ],
             ),

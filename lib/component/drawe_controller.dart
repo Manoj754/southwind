@@ -12,6 +12,7 @@ enum DrawerIndex {
   Settings,
   Help,
   Refer,
+  CardTime,
   Account
 }
 
@@ -289,22 +290,22 @@ class _DrawerUserControllerState extends State<DrawerUserController>
 
   List<Widget> get _getActions {
     switch (widget.currentBottomBarIndex) {
-      case 4:
-        return [
-          Padding(
-            padding: const EdgeInsets.only(right: 10),
-            child: InkWell(
-              onTap: () {
-                Navigator.pushNamed(context, Routes.clockInOutScreen);
-              },
-              child: Image.asset(
-                "assets/images/portfolio.png",
-                color: primarySwatch[900],
-                width: 25,
-              ),
-            ),
-          )
-        ];
+      // case 4:
+      //   return [
+      //     Padding(
+      //       padding: const EdgeInsets.only(right: 10),
+      //       child: InkWell(
+      //         onTap: () {
+      //           Navigator.pushNamed(context, Routes.clockInOutScreen);
+      //         },
+      //         child: Image.asset(
+      //           "assets/images/portfolio.png",
+      //           color: primarySwatch[900],
+      //           width: 25,
+      //         ),
+      //       ),
+      //     )
+      //   ];
     }
     return [];
   }
@@ -444,6 +445,11 @@ class _HomeDrawerState extends State<HomeDrawer> {
         index: DrawerIndex.Refer,
         labelName: 'Learning',
         icon: Icon(Icons.explore_outlined),
+      ),
+      DrawerList(
+        index: DrawerIndex.CardTime,
+        labelName: 'Time Card',
+        icon: Icon(Icons.timer),
       ),
       DrawerList(
         index: DrawerIndex.Account,
