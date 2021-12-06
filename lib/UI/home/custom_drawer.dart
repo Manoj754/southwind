@@ -75,6 +75,35 @@ class _CustomDrawerState extends State<CustomDrawer> {
       setState(() {});
     }
   }
+
+  // Widget get ScreenWidget {
+  //   switch (drawerIndex) {
+  //     case DrawerIndex.HOME:
+  //       return HomeScreen(onindexChange: (onindexChange))
+  //       break;
+  //     case DrawerIndex.YourServices:
+  //       // TODO: Handle this case.
+  //       break;
+  //     case DrawerIndex.Wallet:
+  //       // TODO: Handle this case.
+  //       break;
+  //     case DrawerIndex.Settings:
+  //       // TODO: Handle this case.
+  //       break;
+  //     case DrawerIndex.Help:
+  //       // TODO: Handle this case.
+  //       break;
+  //     case DrawerIndex.Refer:
+  //       // TODO: Handle this case.
+  //       break;
+  //     case DrawerIndex.CardTime:
+  //       // TODO: Handle this case.
+  //       break;
+  //     case DrawerIndex.Account:
+  //       // TODO: Handle this case.
+  //       break;
+  //   }
+  // }
 }
 
 
