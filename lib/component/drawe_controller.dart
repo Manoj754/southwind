@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:southwind/UI/theme/apptheme.dart';
+import 'package:southwind/routes/routes.dart';
 
 enum DrawerIndex {
   HOME,
@@ -24,10 +25,12 @@ class DrawerUserController extends StatefulWidget {
     this.menuView,
     required this.drawerIsOpen,
     required this.screenIndex,
+    required this.currentBottomBarIndex,
   }) : super(key: key);
 
   final double drawerWidth;
   final Function(DrawerIndex) onDrawerCall;
+  final int currentBottomBarIndex;
   final Widget screenView;
   final Function(bool) drawerIsOpen;
   final AnimatedIconData animatedIconData;
@@ -200,6 +203,7 @@ class _DrawerUserControllerState extends State<DrawerUserController>
                                 Image.asset("assets/images/southwind_logo.png"),
                           ),
                           centerTitle: true,
+                          actions: _getActions,
                         ),
                         body: widget.screenView,
                       ),
@@ -281,6 +285,28 @@ class _DrawerUserControllerState extends State<DrawerUserController>
         ),
       ),
     );
+  }
+
+  List<Widget> get _getActions {
+    switch (widget.currentBottomBarIndex) {
+      case 4:
+        return [
+          Padding(
+            padding: const EdgeInsets.only(right: 10),
+            child: InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, Routes.clockInOutScreen);
+              },
+              child: Image.asset(
+                "assets/images/portfolio.png",
+                color: primarySwatch[900],
+                width: 25,
+              ),
+            ),
+          )
+        ];
+    }
+    return [];
   }
 
   void onDrawerClick() {

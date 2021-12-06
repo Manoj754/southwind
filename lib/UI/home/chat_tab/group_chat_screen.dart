@@ -18,6 +18,8 @@ class _GroupChatScreenState extends State<GroupChatScreen> {
       appBar: AppBar(
         leadingWidth: 50,
         titleSpacing: 0,
+        iconTheme: IconThemeData(color: primarySwatch[900]),
+        backgroundColor: Colors.white,
         title: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -27,7 +29,7 @@ class _GroupChatScreenState extends State<GroupChatScreen> {
               child: Padding(
                 padding: const EdgeInsets.all(4.0),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(1000),
                   child: Image.network(
                     "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
                   ),
@@ -40,9 +42,7 @@ class _GroupChatScreenState extends State<GroupChatScreen> {
             Center(
               child: Text(
                 "Group Name",
-                style: TextStyle(
-                  fontSize: 16,
-                ),
+                style: TextStyle(fontSize: 18, color: primarySwatch[900]),
               ),
             ),
             // Column(
@@ -63,7 +63,7 @@ class _GroupChatScreenState extends State<GroupChatScreen> {
                 onTap: () {
                   Navigator.pushNamed(context, Routes.groupInfo);
                 },
-                child: Icon(Icons.info_outline)),
+                child: Icon(Icons.more_vert_outlined)),
           )
         ],
       ),
@@ -113,11 +113,21 @@ class _GroupChatScreenState extends State<GroupChatScreen> {
                               suffixIcon: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  Icon(Icons.file_copy),
-                                  SizedBox(
-                                    width: 10,
+                                  // Icon(Icons.file_copy),
+                                  Image.asset(
+                                    "assets/images/attachments.png",
+                                    color: primarySwatch[900],
+                                    width: 25,
                                   ),
-                                  Icon(Icons.send_outlined),
+                                  SizedBox(
+                                    width: 15,
+                                  ),
+                                  // Icon(Icons.send_outlined),
+                                  Image.asset(
+                                    "assets/images/send.png",
+                                    color: primarySwatch[900],
+                                    width: 25,
+                                  ),
                                   SizedBox(
                                     width: 10,
                                   ),
@@ -132,11 +142,11 @@ class _GroupChatScreenState extends State<GroupChatScreen> {
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(5),
                                   borderSide: BorderSide(
-                                      width: .5, color: primarySwatch[700]!)),
+                                      width: .5, color: primarySwatch[900]!)),
                               enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(5),
                                   borderSide: BorderSide(
-                                      width: .5, color: primarySwatch[700]!)),
+                                      width: .5, color: primarySwatch[900]!)),
                               focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(5),
                                   borderSide: BorderSide(

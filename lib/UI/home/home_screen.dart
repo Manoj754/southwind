@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:southwind/UI/home/career_tab/career_tab.dart';
 import 'package:southwind/UI/home/chat_tab/all_chat_list.dart';
 import 'package:southwind/UI/home/clock_in_out/clock_in_out.dart';
+import 'package:southwind/UI/home/clock_in_out/work_history.dart';
 import 'package:southwind/UI/home/news_tab/news_screen.dart';
 import 'package:southwind/UI/home/schedule_tab/schedule.dart';
 import 'package:southwind/UI/theme/apptheme.dart';
@@ -9,7 +10,8 @@ import 'package:southwind/component/bottom_navigation.dart';
 import 'package:southwind/component/navigationtheme.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  final Function(int) onindexChange;
+  const HomeScreen({required this.onindexChange, Key? key}) : super(key: key);
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -42,6 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 setState(() {
                   selectedIndex = index;
                 });
+                widget.onindexChange(index);
               },
               items: [
                 FFNavigationBarItem(
@@ -81,9 +84,9 @@ class _HomeScreenState extends State<HomeScreen> {
       case 2:
         return CareerTab();
       case 3:
-        return ClockInOut();
-      case 4:
         return AllChatList();
+      case 4:
+        return ClockInOut();
     }
     return Container();
   }

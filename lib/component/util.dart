@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:southwind/constant/slidedrection.dart';
 
 class Utils {
@@ -32,4 +33,8 @@ class Utils {
         return Offset(value - 30.0, 0);
     }
   }
+}
+
+showToast(String message) {
+  Fluttertoast.showToast(msg: message);
 }

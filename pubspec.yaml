@@ -42,6 +42,7 @@ dependencies:
   table_calendar: ^3.0.0
   syncfusion_flutter_calendar: ^19.3.55
   better_player: ^0.0.73
+  fluttertoast: ^8.0.3
 dev_dependencies:
   flutter_test:
     sdk: flutter

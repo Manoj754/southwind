@@ -81,14 +81,26 @@ class _GroupInfoState extends State<GroupInfo> {
               color: primaryColor,
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                child: Text(
-                  '6 participates',
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                      fontSize: 18,
+                child: Row(
+                  children: [
+                    Text(
+                      '6 participates',
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500),
+                    ),
+                    Spacer(),
+                    Icon(
+                      Icons.search,
                       color: Colors.white,
-                      fontWeight: FontWeight.w500),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -106,30 +118,31 @@ class _GroupInfoState extends State<GroupInfo> {
                         padding: const EdgeInsets.symmetric(
                             horizontal: 10, vertical: 10),
                         child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            // CircleAvatar(
-                            //   radius: 25,
-                            //   backgroundImage: NetworkImage(
-                            //       "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"),
-                            // ),
-                            Container(
-                              height: 50,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(10),
-                                child: Image.network(
-                                    "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"),
-                              ),
+                            CircleAvatar(
+                              radius: 25,
+                              backgroundImage: NetworkImage(
+                                  "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"),
                             ),
+                            // Container(
+                            //   height: 50,
+                            //   child: ClipRRect(
+                            //     borderRadius: BorderRadius.circular(10),
+                            //     child: Image.network(
+                            //         "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"),
+                            //   ),
+                            // ),
                             const SizedBox(
                               width: 10,
                             ),
                             Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Text(
                                   "Domic lakra",
                                   style: TextStyle(
+                                      fontSize: 18,
                                       color: primarySwatch[900],
                                       fontWeight: FontWeight.bold),
                                 ),

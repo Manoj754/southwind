@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:southwind/UI/components/common_button.dart';
 import 'package:southwind/UI/theme/apptheme.dart';
 
 class CustomPopUp extends StatefulWidget {
-  String title;
-  String subTitle;
+  final String title;
+  final String subTitle;
   CustomPopUp({required this.title, required this.subTitle});
 
   @override
@@ -79,19 +80,25 @@ class _CustomPopUpState extends State<CustomPopUp> {
                               SizedBox(
                                 height: 10,
                               ),
-                              Container(
-                                  width: 150,
-                                  height: 50,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      color: primarySwatch.shade400),
-                                  child: Center(
-                                    child: Text(
-                                      'Okay',
-                                      style: TextStyle(
-                                          fontSize: 18, color: Colors.white),
-                                    ),
-                                  ))
+                              // Container(
+                              //     width: 150,
+                              //     height: 50,
+                              //     decoration: BoxDecoration(
+                              //         borderRadius: BorderRadius.circular(10),
+                              //         color: primarySwatch.shade400),
+                              //     child: Center(
+                              //       child: Text(
+                              //         'Okay',
+                              //         style: TextStyle(
+                              //             fontSize: 18, color: Colors.white),
+                              //       ),
+                              //     )),
+                              CommonButton(
+                                lable: "Completed",
+                                ontap: () {
+                                  Navigator.pop(context);
+                                },
+                              )
                             ],
                           ),
                         ),

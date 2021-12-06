@@ -18,6 +18,7 @@ class CustomDrawer extends StatefulWidget {
 class _CustomDrawerState extends State<CustomDrawer> {
   Widget screenView = NewsScreen();
   DrawerIndex drawerIndex = DrawerIndex.HOME;
+  int currentBottomBarIndex = 0;
   int selectedIndex = 0;
   GlobalKey<SliderMenuContainerState> _key =
       new GlobalKey<SliderMenuContainerState>();
@@ -44,13 +45,20 @@ class _CustomDrawerState extends State<CustomDrawer> {
       // ),
       body: SafeArea(
         child: DrawerUserController(
+          currentBottomBarIndex: currentBottomBarIndex,
           screenIndex: drawerIndex,
           drawerWidth: MediaQuery.of(context).size.width * 0.75,
           onDrawerCall: (DrawerIndex drawerIndexdata) {
             changeIndex(drawerIndexdata);
             //callback from drawer for replace screen as user need with passing DrawerIndex(Enum index)
           },
-          screenView: HomeScreen(), drawerIsOpen: (bool) {},
+          screenView: HomeScreen(
+            onindexChange: (i) {
+              currentBottomBarIndex = i;
+              setState(() {});
+            },
+          ),
+          drawerIsOpen: (bool) {},
           //we replace screen view as we need on navigate starting screens like MyHomePage, HelpScreen, FeedbackScreen, etc...
         ),
       ),

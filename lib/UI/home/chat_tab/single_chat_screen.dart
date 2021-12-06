@@ -13,6 +13,8 @@ class SingleChatScreen extends StatelessWidget {
       appBar: AppBar(
         leadingWidth: 50,
         titleSpacing: 0,
+        iconTheme: IconThemeData(color: primarySwatch[900]),
+        backgroundColor: Colors.white,
         title: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -22,7 +24,7 @@ class SingleChatScreen extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(4.0),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(1000),
                   child: Image.network(
                     "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
                   ),
@@ -35,9 +37,7 @@ class SingleChatScreen extends StatelessWidget {
             Center(
               child: Text(
                 "Domic lakra",
-                style: TextStyle(
-                  fontSize: 16,
-                ),
+                style: TextStyle(fontSize: 18, color: primarySwatch[900]),
               ),
             ),
             // Column(
@@ -51,16 +51,16 @@ class SingleChatScreen extends StatelessWidget {
             // )
           ],
         ),
-        // actions: [
-        //   Padding(
-        //     padding: const EdgeInsets.symmetric(horizontal: 20),
-        //     child: InkWell(
-        //         onTap: () {
-        //           Navigator.pushNamed(context, '/ProfileInfo');
-        //         },
-        //         child: Icon(Icons.info_outline)),
-        //   )
-        // ],
+        actions: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: InkWell(
+                onTap: () {
+                  // Navigator.pushNamed(context, '/ProfileInfo');
+                },
+                child: Icon(Icons.more_vert_outlined)),
+          )
+        ],
       ),
       body: Container(
         height: MediaQuery.of(context).size.height,
@@ -106,11 +106,21 @@ class SingleChatScreen extends StatelessWidget {
                               suffixIcon: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  Icon(Icons.file_copy),
-                                  SizedBox(
-                                    width: 10,
+                                  // Icon(Icons.file_copy),
+                                  Image.asset(
+                                    "assets/images/attachments.png",
+                                    color: primarySwatch[900],
+                                    width: 25,
                                   ),
-                                  Icon(Icons.send_outlined),
+                                  SizedBox(
+                                    width: 15,
+                                  ),
+                                  // Icon(Icons.send_outlined),
+                                  Image.asset(
+                                    "assets/images/send.png",
+                                    color: primarySwatch[900],
+                                    width: 25,
+                                  ),
                                   SizedBox(
                                     width: 10,
                                   ),
@@ -125,11 +135,11 @@ class SingleChatScreen extends StatelessWidget {
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(5),
                                   borderSide: BorderSide(
-                                      width: .5, color: primarySwatch[700]!)),
+                                      width: .5, color: primarySwatch[900]!)),
                               enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(5),
                                   borderSide: BorderSide(
-                                      width: .5, color: primarySwatch[700]!)),
+                                      width: .5, color: primarySwatch[900]!)),
                               focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(5),
                                   borderSide: BorderSide(
@@ -188,7 +198,7 @@ class SingleMessage extends StatelessWidget {
                 shape: RoundedRectangleBorder(borderRadius: borderRadius),
                 child: Padding(
                   padding: isGroup! && isLeft
-                      ? EdgeInsets.fromLTRB(8, 0, 8, 8)
+                      ? EdgeInsets.fromLTRB(8, 4, 8, 4)
                       : EdgeInsets.all(0),
                   child: Column(
                     crossAxisAlignment: isLeft
@@ -199,7 +209,7 @@ class SingleMessage extends StatelessWidget {
                         Column(
                           children: [
                             Padding(
-                              padding: EdgeInsets.fromLTRB(8, 2, 8, 4),
+                              padding: EdgeInsets.fromLTRB(8, 2, 8, 0),
                               child: Text(
                                 messageModel.sender,
                                 style: TextStyle(fontWeight: FontWeight.bold),
@@ -263,13 +273,13 @@ class TextMessage extends StatelessWidget {
         color: Colors.white,
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
         child: Column(
           crossAxisAlignment:
               isLeft ? CrossAxisAlignment.start : CrossAxisAlignment.end,
           children: [
             SizedBox(
-              height: 4,
+              height: 0,
             ),
             Text(messageModel.content),
             Text(

@@ -13,6 +13,7 @@ class AllChatList extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
       child: ListView.builder(
+        padding: EdgeInsets.symmetric(vertical: 10),
         itemBuilder: (context, index) {
           return Column(
             children: [
@@ -21,9 +22,12 @@ class AllChatList extends StatelessWidget {
                   : GroupChatCard(
                       index: index,
                     ),
-              Divider(
-                height: 10,
+              SizedBox(
+                height: 15,
               ),
+              // Divider(
+              //   height: 10,
+              // ),
             ],
           );
         },

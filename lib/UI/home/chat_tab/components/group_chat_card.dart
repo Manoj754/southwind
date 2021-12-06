@@ -23,24 +23,24 @@ class GroupChatCard extends StatelessWidget {
               //       "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"),
               // ),
               Container(
-                height: 60,
-                width: 60,
+                height: 50,
+                width: 50,
                 child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(100000),
                     child: Column(
                       children: [
                         Row(
                           children: [
                             Image.network(
                               "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
-                              height: 30,
-                              width: 30,
+                              height: 25,
+                              width: 25,
                               fit: BoxFit.cover,
                             ),
                             Image.network(
                               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhrlH9QlMjus9pQY0IPfd97FE7RdNVga3MY-lMqsaltgspxx3q_-Bg6wcOJDYGnPy1gIU&usqp=CAU",
-                              height: 30,
-                              width: 30,
+                              height: 25,
+                              width: 25,
                               fit: BoxFit.cover,
                             ),
                           ],
@@ -53,8 +53,8 @@ class GroupChatCard extends StatelessWidget {
                                   bottomRight: Radius.circular(10)),
                               child: Image.network(
                                 "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
-                                height: 30,
-                                width: 60,
+                                height: 25,
+                                width: 50,
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -86,9 +86,12 @@ class GroupChatCard extends StatelessWidget {
                 ],
               ),
               Spacer(),
-              Text(
-                "10:30 am",
-                style: TextStyle(fontWeight: FontWeight.normal, fontSize: 12),
+              Padding(
+                padding: const EdgeInsets.only(top: 4),
+                child: Text(
+                  "10:30 am",
+                  style: TextStyle(fontWeight: FontWeight.normal, fontSize: 12),
+                ),
               )
             ],
           ),
