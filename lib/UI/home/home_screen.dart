@@ -5,6 +5,7 @@ import 'package:southwind/UI/home/clock_in_out/clock_in_out.dart';
 import 'package:southwind/UI/home/clock_in_out/work_history.dart';
 import 'package:southwind/UI/home/news_tab/news_screen.dart';
 import 'package:southwind/UI/home/schedule_tab/schedule.dart';
+import 'package:southwind/UI/profile/profile_tab.dart';
 import 'package:southwind/UI/theme/apptheme.dart';
 import 'package:southwind/component/bottom_navigation.dart';
 import 'package:southwind/component/navigationtheme.dart';
@@ -86,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
       case 3:
         return AllChatList();
       case 4:
-        return ClockInOut();
+        return Profile();
     }
     return Container();
   }

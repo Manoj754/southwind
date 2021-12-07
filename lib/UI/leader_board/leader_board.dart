@@ -202,13 +202,17 @@ class _LeaderBoardState extends State<LeaderBoard> {
                           return Card(
                             child: Padding(
                               padding: const EdgeInsets.symmetric(
-                                  horizontal: 8, vertical: 18),
+                                  horizontal: 8, vertical: 14),
                               child: Row(
                                 children: [
                                   SizedBox(
                                     width: 10,
                                   ),
-                                  Text("${index + 1}"),
+                                  Text(
+                                    "${index + 1}",
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
                                   SizedBox(
                                     width: 20,
                                   ),
@@ -225,23 +229,33 @@ class _LeaderBoardState extends State<LeaderBoard> {
                                             fontSize: 14,
                                             color: Colors.black),
                                       ),
+                                      SizedBox(
+                                        height: 5,
+                                      ),
                                       Text(
                                         "${Revenuelist[index].subtitle}",
                                         maxLines: 1,
                                         overflow: TextOverflow.ellipsis,
                                         style: TextStyle(
-                                            color: Colors.black, height: 1),
+                                            color: Colors.grey,
+                                            height: 1,
+                                            fontSize: 14),
                                       )
                                     ],
                                   ),
                                   Spacer(),
                                   Row(
                                     children: [
-                                      Icon(Icons.attach_money),
+                                      // Icon(
+                                      //   Icons.attach_money,
+                                      //   size: 16,
+                                      // ),
                                       Text(
-                                        "${Revenuelist[index].income}",
+                                        "\$${Revenuelist[index].income}",
                                         style: TextStyle(
-                                            fontWeight: FontWeight.bold),
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 14,
+                                        ),
                                       )
                                     ],
                                   ),

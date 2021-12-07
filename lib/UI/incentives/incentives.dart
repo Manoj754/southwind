@@ -98,11 +98,11 @@ class _IncentivesState extends State<Incentives> {
                               style: selectedIndex != i
                                   ? TextStyle(
                                       color: primarySwatch[900],
-                                      fontSize: 12,
+                                      fontSize: 14,
                                       fontWeight: FontWeight.bold)
                                   : TextStyle(
                                       color: Colors.white,
-                                      fontSize: 12,
+                                      fontSize: 14,
                                       fontWeight: FontWeight.bold),
                             ),
                           ),
@@ -130,9 +130,12 @@ class _IncentivesState extends State<Incentives> {
                         Container(
                           width: 60,
                           height: 60,
-                          child: Image.network(
-                            incentivesList[index].image,
-                            fit: BoxFit.cover,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(4),
+                            child: Image.network(
+                              incentivesList[index].image,
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
                         SizedBox(
@@ -147,14 +150,18 @@ class _IncentivesState extends State<Incentives> {
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
                                   fontWeight: FontWeight.w600,
-                                  fontSize: 14,
+                                  fontSize: 16,
                                   color: Colors.black),
+                            ),
+                            SizedBox(
+                              height: 5,
                             ),
                             Text(
                               "${incentivesList[index].tokens}",
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
-                              style: TextStyle(color: Colors.black, height: 1),
+                              style: TextStyle(
+                                  color: Colors.grey, height: 1, fontSize: 14),
                             )
                           ],
                         ),
@@ -163,12 +170,13 @@ class _IncentivesState extends State<Incentives> {
                           Center(
                             child: Container(
                               decoration: BoxDecoration(
+                                  color: primarySwatch[100],
                                   border:
                                       Border.all(color: primarySwatch[900]!),
                                   borderRadius: BorderRadius.circular(10)),
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(
-                                    horizontal: 12, vertical: 4),
+                                    horizontal: 12, vertical: 2),
                                 child: Text(
                                   "Buy",
                                   style: TextStyle(fontSize: 14),

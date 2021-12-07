@@ -3,6 +3,7 @@ import 'package:southwind/UI/home/home_screen.dart';
 import 'package:southwind/UI/home/news_tab/news_screen.dart';
 import 'package:southwind/UI/incentives/incentives.dart';
 import 'package:southwind/UI/leader_board/leader_board.dart';
+import 'package:southwind/UI/library/library.dart';
 import 'package:southwind/UI/theme/apptheme.dart';
 import 'package:southwind/UI/time_card/time_card.dart';
 import 'package:southwind/component/bottom_navigation.dart';
@@ -81,6 +82,14 @@ class _CustomDrawerState extends State<CustomDrawer> {
 
   Widget get ScreenWidget {
     switch (drawerIndex) {
+      case DrawerIndex.Home:
+        return HomeScreen(
+          onindexChange: (i) {
+            currentBottomBarIndex = i;
+            setState(() {});
+          },
+        );
+
       case DrawerIndex.LeaderBoard:
         return LeaderBoard();
       // return HomeScreen(
@@ -93,7 +102,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
       case DrawerIndex.Incentives:
         return Incentives();
       case DrawerIndex.Library:
-        // TODO: Handle this case.
+        return Library();
         break;
       case DrawerIndex.Surveys:
         // TODO: Handle this case.

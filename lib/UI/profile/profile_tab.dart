@@ -14,12 +14,8 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return SafeArea(
-        child: Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-      ),
-      body: Column(
+    return SingleChildScrollView(
+      child: Column(
         children: [
           Stack(
             clipBehavior: Clip.none,
@@ -41,7 +37,7 @@ class _ProfileState extends State<Profile> {
                   child: Container(
                     padding: EdgeInsets.symmetric(vertical: 5),
                     width: size.width,
-                    height: size.height * 0.16,
+                    // height: size.height * 0.16,
                     child: Padding(
                       padding: EdgeInsets.only(
                         left: size.width * 0.3,
@@ -51,13 +47,13 @@ class _ProfileState extends State<Profile> {
                           Text(
                             "Joyce Lathrop",
                             style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 22),
+                                fontWeight: FontWeight.bold, fontSize: 20),
                           ),
-                          Text(
-                            "UI/UX Designer",
-                            style: TextStyle(
-                                color: primarySwatch[600], fontSize: 15),
-                          ),
+                          // Text(
+                          //   "UI/UX Designer",
+                          //   style: TextStyle(
+                          //       color: primarySwatch[600], fontSize: 15),
+                          // ),
                           SizedBox(
                             height: size.height * 0.01,
                           ),
@@ -67,13 +63,13 @@ class _ProfileState extends State<Profile> {
                               Column(
                                 children: [
                                   Text(
-                                    "156K",
+                                    "156",
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 18),
                                   ),
                                   Text(
-                                    "Followers",
+                                    "Tokens",
                                     style: TextStyle(height: 1),
                                   ),
                                 ],
@@ -81,13 +77,13 @@ class _ProfileState extends State<Profile> {
                               Column(
                                 children: [
                                   Text(
-                                    "5.0",
+                                    "5",
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 18),
                                   ),
                                   Text(
-                                    "Design",
+                                    "Y. Service",
                                     style: TextStyle(height: 1),
                                   ),
                                 ],
@@ -131,14 +127,14 @@ class _ProfileState extends State<Profile> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "- My works",
+                  "- My Info",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 25,
+                    fontSize: 20,
                   ),
                 ),
                 SizedBox(
-                  height: size.height * 0.015,
+                  height: size.height * 0.01,
                 ),
                 Card(
                   elevation: 5,
@@ -147,49 +143,22 @@ class _ProfileState extends State<Profile> {
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 5),
                     child: ListTile(
+                      contentPadding: EdgeInsets.symmetric(horizontal: 18),
                       title: Text(
-                        "Mobile Number",
+                        "Member ID",
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: primarySwatch[700]),
                       ),
-                      subtitle: Text(
-                        "+91 9664917815",
-                        style: TextStyle(
-                            height: 1.9,
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 2,
-                            wordSpacing: 1,
-                            color: primarySwatch[400]),
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: size.height * 0.015,
-                ),
-                Card(
-                  elevation: 5,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12)),
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 5),
-                    child: ListTile(
-                      title: Text(
-                        "Membership",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: primarySwatch[700]),
-                      ),
-                      subtitle: Text(
-                        "Gold",
-                        style: TextStyle(
-                            height: 1.9,
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 2,
-                            wordSpacing: 1,
-                            color: primarySwatch[400]),
-                      ),
+                      // subtitle: Text(
+                      //   "27",
+                      //   style: TextStyle(
+                      //       // height: 1.5,
+                      //       fontWeight: FontWeight.bold,
+                      //       letterSpacing: 2,
+                      //       wordSpacing: 1,
+                      //       color: primarySwatch[400]),
+                      // ),
                       trailing: Container(
                         padding:
                             EdgeInsets.symmetric(horizontal: 10, vertical: 5),
@@ -203,38 +172,91 @@ class _ProfileState extends State<Profile> {
                                   color: primarySwatch,
                                   offset: Offset(0, 1.5))
                             ]),
-                        child: Text("61 Orders"),
+                        child: Text("27"),
                       ),
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: size.height * 0.015,
+                // SizedBox(
+                //   height: size.height * 0.005,
+                // ),
+                Card(
+                  elevation: 5,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12)),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 5),
+                    child: ListTile(
+                      contentPadding: EdgeInsets.symmetric(horizontal: 18),
+                      title: Text(
+                        "Location",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: primarySwatch[700]),
+                      ),
+                      subtitle: Text(
+                        "Southwind",
+                        style: TextStyle(
+                            // height: 1.5,
+                            fontWeight: FontWeight.normal,
+                            letterSpacing: 2,
+                            wordSpacing: 1,
+                            fontSize: 14,
+                            color: primarySwatch[400]),
+                      ),
+                    ),
+                  ),
                 ),
                 Card(
                   elevation: 5,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
+                      borderRadius: BorderRadius.circular(12)),
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 5),
                     child: ListTile(
+                      contentPadding: EdgeInsets.symmetric(horizontal: 18),
                       title: Text(
-                        "Address",
+                        "Email",
                         style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: primarySwatch[700],
-                        ),
+                            fontWeight: FontWeight.bold,
+                            color: primarySwatch[700]),
                       ),
                       subtitle: Text(
-                        "921 Church St, Sun Francisco, CA 94114, USA",
+                        "m@m.com",
                         style: TextStyle(
-                          height: 1.5,
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1,
-                          wordSpacing: 1,
-                          color: primarySwatch[400],
-                        ),
+                            // height: 1.5,
+                            fontWeight: FontWeight.normal,
+                            letterSpacing: 2,
+                            wordSpacing: 1,
+                            fontSize: 14,
+                            color: primarySwatch[400]),
+                      ),
+                    ),
+                  ),
+                ),
+                Card(
+                  elevation: 5,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12)),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 5),
+                    child: ListTile( 
+                      contentPadding: EdgeInsets.symmetric(horizontal: 18),
+                      title: Text(
+                        "Start Date",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: primarySwatch[700]),
+                      ),
+                      subtitle: Text(
+                        "07/12/2021",
+                        style: TextStyle(
+                            // height: 1.5,
+                            fontWeight: FontWeight.normal,
+                            letterSpacing: 2,
+                            wordSpacing: 1,
+                            fontSize: 14,
+                            color: primarySwatch[400]),
                       ),
                     ),
                   ),
@@ -244,6 +266,6 @@ class _ProfileState extends State<Profile> {
           ),
         ],
       ),
-    ));
+    );
   }
 }

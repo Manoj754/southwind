@@ -30,8 +30,12 @@ class MyApp extends StatelessWidget {
         // scaffoldBackgroundColor: primarySwatch[50],
         // fontFamily: 'Poppins',
         appBarTheme: AppBarTheme(
-            backgroundColor: primaryColor,
-            iconTheme: IconThemeData(color: Colors.white)),
+            // color: primarySwatch[900]!,
+            backgroundColor: Colors.white,
+            titleTextStyle: TextStyle(color: primarySwatch[900]),
+            // textTheme: Theme.of(context).textTheme,
+            foregroundColor: primarySwatch[900],
+            iconTheme: IconThemeData(color: primarySwatch[900])),
         textTheme: GoogleFonts.poppinsTextTheme(TextTheme(
             bodyText1: TextStyle(
                 fontWeight: FontWeight.w600,
@@ -54,7 +58,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: generateMaterialColor(primaryColor),
       ),
       onGenerateRoute: Routes.onRouteGenerate,
-      home: Profile(),
+      home: CustomDrawer(),
     );
   }
 }

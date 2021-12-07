@@ -4,6 +4,7 @@ import 'package:southwind/UI/theme/apptheme.dart';
 import 'package:southwind/routes/routes.dart';
 
 enum DrawerIndex {
+  Home,
   LeaderBoard,
   // Payment,
   Incentives,
@@ -407,6 +408,11 @@ class _HomeDrawerState extends State<HomeDrawer> {
   @override
   Widget build(BuildContext context) {
     drawerList = <DrawerList>[
+      DrawerList(
+        index: DrawerIndex.Home,
+        labelName: 'Home',
+        icon: Icon(Icons.home_outlined),
+      ),
       DrawerList(
         index: DrawerIndex.LeaderBoard,
         labelName: 'Leaderboard',

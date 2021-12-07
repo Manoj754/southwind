@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:southwind/UI/components/common_appbar.dart';
 import 'package:southwind/UI/library/video_tab.dart';
+import 'package:southwind/UI/theme/apptheme.dart';
 
 class Library extends StatefulWidget {
   @override
@@ -13,20 +14,20 @@ class _LibraryState extends State<Library> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "LIBRARY",
-          style: TextStyle(fontWeight: FontWeight.bold, letterSpacing: 0.5),
-        ),
-        actions: [
-          Icon(
-            Icons.menu_outlined,
-          ),
-          SizedBox(
-            width: 10,
-          ),
-        ],
-      ),
+      // appBar: AppBar(
+      //   title: Text(
+      //     "LIBRARY",
+      //     style: TextStyle(fontWeight: FontWeight.bold, letterSpacing: 0.5),
+      //   ),
+      //   actions: [
+      //     Icon(
+      //       Icons.menu_outlined,
+      //     ),
+      //     SizedBox(
+      //       width: 10,
+      //     ),
+      //   ],
+      // ),
       body: Container(
         margin: EdgeInsets.symmetric(horizontal: 10),
         child: Column(
@@ -87,12 +88,13 @@ class _LibraryState extends State<Library> {
                     },
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
-                          vertical: 8.0, horizontal: 8),
+                          vertical: 4.0, horizontal: 8),
                       child: Container(
                         // margin: EdgeInsets.symmetric(horizontal: 10),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(10),
+                          border: Border.all(color: primaryColor, width: .5),
                           boxShadow: [
                             BoxShadow(
                               color: Colors.grey,
@@ -109,8 +111,7 @@ class _LibraryState extends State<Library> {
                             // ),
                             Container(
                               margin: EdgeInsets.symmetric(
-                                horizontal: 10,
-                              ),
+                                  horizontal: 10, vertical: 4),
                               child: Text(
                                 "${Mes[index].mesg}",
                                 //style: TextStyle(height: 1.5),
@@ -120,9 +121,11 @@ class _LibraryState extends State<Library> {
                             //   width: 40,
                             // ),
                             Container(
-                              margin: EdgeInsets.symmetric(vertical: 15),
+                              margin: EdgeInsets.symmetric(
+                                  vertical: 15, horizontal: 5),
                               child: Icon(
-                                Icons.chevron_right_outlined,
+                                Icons.arrow_forward_ios,
+                                color: primarySwatch[900],
                               ),
                             ),
                           ],

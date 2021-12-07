@@ -24,7 +24,7 @@ class _VideoTabState extends State<VideoTab> {
         isLoading = false;
 
         _controller.setLooping(true);
-        _controller.play();
+        // _controller.play();
         // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
         setState(() {});
       });
@@ -45,21 +45,35 @@ class _VideoTabState extends State<VideoTab> {
   }
 
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(widget.title),
+        title: Text(
+          widget.title,
+          style: TextStyle(
+            color: primarySwatch[900],
+          ),
+        ),
       ),
       body: Column(
         children: [
-          AspectRatio(
-            aspectRatio: 16 / 9,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              child: BetterPlayer(
-                controller: _betterPlayerController,
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: AspectRatio(
+              aspectRatio: 16 / 9,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: BetterPlayer(
+                  controller: _betterPlayerController,
+                ),
               ),
             ),
           ),
