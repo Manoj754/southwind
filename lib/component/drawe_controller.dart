@@ -4,15 +4,16 @@ import 'package:southwind/UI/theme/apptheme.dart';
 import 'package:southwind/routes/routes.dart';
 
 enum DrawerIndex {
-  HOME,
+  LeaderBoard,
   // Payment,
-  YourServices,
-  Wallet,
+  Incentives,
+  Library,
   // Passbook,
-  Settings,
-  Help,
-  Refer,
+  Surveys,
+  Challenges,
+  Learning,
   CardTime,
+  // Incentives,
   Account
 }
 
@@ -134,7 +135,7 @@ class _DrawerUserControllerState extends State<DrawerUserController>
                           scrollController.offset, 0.0, 0.0),
                       child: HomeDrawer(
                         screenIndex: widget.screenIndex == null
-                            ? DrawerIndex.HOME
+                            ? DrawerIndex.LeaderBoard
                             : widget.screenIndex,
                         iconAnimationController: iconAnimationController,
                         callBackIndex: (DrawerIndex indexType) {
@@ -361,7 +362,7 @@ class _HomeDrawerState extends State<HomeDrawer> {
   void setDrawerListArray() {
     drawerList = <DrawerList>[
       DrawerList(
-        index: DrawerIndex.HOME,
+        index: DrawerIndex.LeaderBoard,
         labelName: 'Leaderboard',
         icon: Icon(Icons.leaderboard),
       ),
@@ -371,12 +372,12 @@ class _HomeDrawerState extends State<HomeDrawer> {
         icon: Icon(CupertinoIcons.creditcard),
       ),*/
       DrawerList(
-        index: DrawerIndex.YourServices,
+        index: DrawerIndex.Incentives,
         labelName: 'Your Services',
         icon: Icon(Icons.select_all_rounded),
       ),
       DrawerList(
-        index: DrawerIndex.Wallet,
+        index: DrawerIndex.Library,
         labelName: 'Wallet',
         icon: Icon(Icons.account_balance_wallet_outlined),
       ),
@@ -386,17 +387,17 @@ class _HomeDrawerState extends State<HomeDrawer> {
         icon: Icon(CupertinoIcons.book),
       ),*/
       DrawerList(
-        index: DrawerIndex.Settings,
+        index: DrawerIndex.Surveys,
         labelName: 'Settings',
         icon: Icon(CupertinoIcons.settings),
       ),
       DrawerList(
-        index: DrawerIndex.Help,
+        index: DrawerIndex.Challenges,
         labelName: 'Help',
         icon: Icon(CupertinoIcons.info),
       ),
       DrawerList(
-        index: DrawerIndex.Refer,
+        index: DrawerIndex.Learning,
         labelName: 'Refer',
         icon: Icon(CupertinoIcons.share),
       ),
@@ -407,7 +408,7 @@ class _HomeDrawerState extends State<HomeDrawer> {
   Widget build(BuildContext context) {
     drawerList = <DrawerList>[
       DrawerList(
-        index: DrawerIndex.HOME,
+        index: DrawerIndex.LeaderBoard,
         labelName: 'Leaderboard',
         icon: Icon(Icons.leaderboard_outlined),
       ),
@@ -417,12 +418,12 @@ class _HomeDrawerState extends State<HomeDrawer> {
         icon: Icon(CupertinoIcons.creditcard),
       ),*/
       DrawerList(
-        index: DrawerIndex.YourServices,
+        index: DrawerIndex.Incentives,
         labelName: 'Incentives',
         icon: Icon(Icons.paid_outlined),
       ),
       DrawerList(
-        index: DrawerIndex.Wallet,
+        index: DrawerIndex.Library,
         labelName: 'Library',
         icon: Icon(Icons.local_library_outlined),
       ),
@@ -432,17 +433,17 @@ class _HomeDrawerState extends State<HomeDrawer> {
         icon: Icon(CupertinoIcons.book),
       ),*/
       DrawerList(
-        index: DrawerIndex.Settings,
+        index: DrawerIndex.Surveys,
         labelName: 'Surveys',
         icon: Icon(Icons.analytics_outlined),
       ),
       DrawerList(
-        index: DrawerIndex.Help,
+        index: DrawerIndex.Challenges,
         labelName: 'Challenges',
         icon: Icon(Icons.flag_outlined),
       ),
       DrawerList(
-        index: DrawerIndex.Refer,
+        index: DrawerIndex.Learning,
         labelName: 'Learning',
         icon: Icon(Icons.explore_outlined),
       ),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:southwind/UI/home/home_screen.dart';
 import 'package:southwind/UI/home/news_tab/news_screen.dart';
+import 'package:southwind/UI/incentives/incentives.dart';
+import 'package:southwind/UI/leader_board/leader_board.dart';
 import 'package:southwind/UI/theme/apptheme.dart';
 import 'package:southwind/UI/time_card/time_card.dart';
 import 'package:southwind/component/bottom_navigation.dart';
@@ -18,7 +20,7 @@ class CustomDrawer extends StatefulWidget {
 
 class _CustomDrawerState extends State<CustomDrawer> {
   Widget screenView = NewsScreen();
-  DrawerIndex drawerIndex = DrawerIndex.HOME;
+  DrawerIndex drawerIndex = DrawerIndex.LeaderBoard;
   int currentBottomBarIndex = 0;
   int selectedIndex = 0;
   GlobalKey<SliderMenuContainerState> _key =
@@ -54,12 +56,13 @@ class _CustomDrawerState extends State<CustomDrawer> {
             changeIndex(drawerIndexdata);
             //callback from drawer for replace screen as user need with passing DrawerIndex(Enum index)
           },
-          screenView: TimeCardScreen(),
+          // screenView: TimeCardScreen(),
+          screenView: ScreenWidget,
           // screenView: HomeScreen(
-          //   onindexChange: (i) {
-          //     currentBottomBarIndex = i;
-          //     setState(() {});
-          //   },
+          // onindexChange: (i) {
+          //   currentBottomBarIndex = i;
+          //   setState(() {});
+          // },
           // ),
           drawerIsOpen: (bool) {},
           //we replace screen view as we need on navigate starting screens like MyHomePage, HelpScreen, FeedbackScreen, etc...
@@ -76,34 +79,45 @@ class _CustomDrawerState extends State<CustomDrawer> {
     }
   }
 
-  // Widget get ScreenWidget {
-  //   switch (drawerIndex) {
-  //     case DrawerIndex.HOME:
-  //       return HomeScreen(onindexChange: (onindexChange))
-  //       break;
-  //     case DrawerIndex.YourServices:
-  //       // TODO: Handle this case.
-  //       break;
-  //     case DrawerIndex.Wallet:
-  //       // TODO: Handle this case.
-  //       break;
-  //     case DrawerIndex.Settings:
-  //       // TODO: Handle this case.
-  //       break;
-  //     case DrawerIndex.Help:
-  //       // TODO: Handle this case.
-  //       break;
-  //     case DrawerIndex.Refer:
-  //       // TODO: Handle this case.
-  //       break;
-  //     case DrawerIndex.CardTime:
-  //       // TODO: Handle this case.
-  //       break;
-  //     case DrawerIndex.Account:
-  //       // TODO: Handle this case.
-  //       break;
-  //   }
-  // }
+  Widget get ScreenWidget {
+    switch (drawerIndex) {
+      case DrawerIndex.LeaderBoard:
+        return LeaderBoard();
+      // return HomeScreen(
+      //   onindexChange: (i) {
+      //     currentBottomBarIndex = i;
+      //     setState(() {});
+      //   },
+      // );
+
+      case DrawerIndex.Incentives:
+        return Incentives();
+      case DrawerIndex.Library:
+        // TODO: Handle this case.
+        break;
+      case DrawerIndex.Surveys:
+        // TODO: Handle this case.
+        break;
+      case DrawerIndex.Challenges:
+        // TODO: Handle this case.
+        break;
+      case DrawerIndex.Learning:
+        // TODO: Handle this case.
+        break;
+      case DrawerIndex.CardTime:
+        return TimeCardScreen();
+      // break;
+      case DrawerIndex.Account:
+        // TODO: Handle this case.
+        break;
+    }
+    return HomeScreen(
+      onindexChange: (i) {
+        currentBottomBarIndex = i;
+        setState(() {});
+      },
+    );
+  }
 }
 
 
