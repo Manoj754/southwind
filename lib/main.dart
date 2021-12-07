@@ -7,6 +7,8 @@ import 'package:southwind/component/bottom_navigation.dart';
 import 'package:southwind/component/navigationtheme.dart';
 import 'package:southwind/routes/routes.dart';
 
+import 'UI/library/library.dart';
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
@@ -50,7 +52,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: generateMaterialColor(primaryColor),
       ),
       onGenerateRoute: Routes.onRouteGenerate,
-      home: CustomDrawer(),
+      home: Library(),
     );
   }
 }
