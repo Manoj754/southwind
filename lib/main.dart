@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:southwind/UI/home/career_tab/page/summary_screen.dart';
 import 'package:southwind/UI/home/custom_drawer.dart';
 import 'package:southwind/UI/leader_board/leader_board.dart';
+import 'package:southwind/UI/profile/profile_tab.dart';
 import 'package:southwind/UI/theme/apptheme.dart';
 import 'package:southwind/component/bottom_navigation.dart';
 import 'package:southwind/component/navigationtheme.dart';
@@ -51,7 +52,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: generateMaterialColor(primaryColor),
       ),
       onGenerateRoute: Routes.onRouteGenerate,
-      home: LeaderBoard(),
+      home: Profile(),
     );
   }
 }
