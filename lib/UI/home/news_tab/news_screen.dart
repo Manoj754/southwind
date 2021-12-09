@@ -302,7 +302,7 @@ class _FeedPostState extends State<FeedPost> {
                         pageController: controller,
                         totalIndex: widget.post.image.length),
                   ),
-                  Expanded(child: Container()),
+                  // Expanded(child: Container()),
                 ],
               ),
             ),
@@ -428,6 +428,12 @@ class MultipleImageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (images.length == 1) {
+      return Image.asset(
+        images.first,
+        fit: BoxFit.scaleDown,
+      );
+    }
     return Container(
       child: PageView(
         controller: Pagecontroller,
@@ -436,6 +442,7 @@ class MultipleImageView extends StatelessWidget {
           ...images
               .map((e) => Image.asset(
                     e,
+                    fit: BoxFit.scaleDown,
                   ))
               .toList(),
         ],
