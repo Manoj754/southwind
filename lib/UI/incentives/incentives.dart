@@ -11,6 +11,7 @@ class Incentives extends StatefulWidget {
 class _IncentivesState extends State<Incentives> {
   int selectedIndex = 0;
   List<String> tabs = ['New', 'Most Popular', 'Purchased'];
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -157,7 +158,7 @@ class _IncentivesState extends State<Incentives> {
                               height: 5,
                             ),
                             Text(
-                              "${incentivesList[index].tokens}",
+                              "${incentivesList[index].tokens} TOKENS",
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
@@ -234,15 +235,73 @@ class IncentiveModel {
   String image;
   String name;
   String tokens;
-  IncentiveModel(
-      {this.image =
-          "https://images.unsplash.com/photo-1633113215844-b2ddc0411724?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-      this.name = "Culture Coin",
-      this.tokens = "134"});
+
+  IncentiveModel({this.image = "", this.name = "", this.tokens = ""});
 }
 
 List<IncentiveModel> incentivesList = [
-  IncentiveModel(),
-  IncentiveModel(),
-  IncentiveModel(),
+  IncentiveModel(
+      image:
+          "https://deih43ym53wif.cloudfront.net/star-beach-phu-quoc-best-beaches-in-vietnam_b2ca258b0d.jpeg",
+      name: "PTO day",
+      tokens: "175"),
+  IncentiveModel(
+      image: "https://lowcostmfg.com/images/product/photo-not-available.jpg",
+      name: "Culture Coin",
+      tokens: "10"),
+  IncentiveModel(
+      image:
+          "https://sm.pcmag.com/pcmag_in/review/b/beats-by-d/beats-by-dre-pill-review_1n7j.jpg",
+      name: "Beats Pill",
+      tokens: "150"),
+  IncentiveModel(
+      image:
+          "https://cdn.mos.cms.futurecdn.net/XK8ncNLKhKzL8UbEqWHHzK-480-80.jpg",
+      name: "Apple Airpods",
+      tokens: "200"),
+  IncentiveModel(
+      image:
+          "https://cdn.shopify.com/s/files/1/0275/2276/0806/products/mockup-871d6c8d_large.png?v=1591310814",
+      name: "Junk Life Dad Hat",
+      tokens: "45"),
+  IncentiveModel(
+      image:
+          "https://ih1.redbubble.net/image.2645602454.7642/ssrco,baseball_cap,product,000000:44f0b734a5,front,square,600x600-bg,f8f8f8.jpg",
+      name: "Junk Life Snapback",
+      tokens: "45"),
+  IncentiveModel(
+      image:
+          "https://m.media-amazon.com/images/I/A13usaonutL._CLa%7C2140%2C2000%7C91dvkmRUcXL.png%7C0%2C0%2C2140%2C2000%2B0.0%2C0.0%2C2140.0%2C2000.0_AC_UL1500_.png",
+      name: "Junk Life Shirt (Script Font)",
+      tokens: "45"),
+  IncentiveModel(
+      image:
+          "https://m.media-amazon.com/images/I/A14Xt5-UAPL._CLa%7C2140%2C2000%7C710GPbR79mL.png%7C0%2C0%2C2140%2C2000%2B0.0%2C0.0%2C2140.0%2C2000.0._UL1500_.png",
+      name: "Junk Life (College Font)",
+      tokens: "45"),
+  IncentiveModel(
+      image: "https://lowcostmfg.com/images/product/photo-not-available.jpg",
+      name: "",
+      tokens: "60"),
+  IncentiveModel(
+      image: "https://lowcostmfg.com/images/product/photo-not-available.jpg",
+      name: "",
+      tokens: "70"),
+];
+
+class Purchased {
+  final String image;
+  final String name;
+  final String cost;
+  final String date;
+  Purchased({this.image = "", this.name = "", this.cost = "", this.date = ""});
+}
+
+List<Purchased> purchaseds = [
+  Purchased(
+      image: "",
+      name: "1/4 zip 1-800-GOT-JUNK?\nsweatshirt",
+      cost: "75",
+      date: "08/08/2021"),
+  Purchased(image: "", name: "text", cost: "1", date: "04/12/2019")
 ];

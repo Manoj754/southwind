@@ -17,8 +17,8 @@ class QuestionsPage extends StatefulWidget {
 
 class _QuestionsPageState extends State<QuestionsPage> {
   int currentQuestion = 0;
-  int totalQuestion = 10;
   PageController _pageController = PageController();
+
   @override
   void initState() {
     super.initState();
@@ -93,7 +93,7 @@ class _QuestionsPageState extends State<QuestionsPage> {
                       Container(
                         height: 60,
                         child: QuestionsTab(
-                          totalQuestion: 10,
+                          totalQuestion: Questions.length,
                           currentQuestion: currentQuestion,
                           onTap: (a) {
                             this.currentQuestion = a;
@@ -115,7 +115,10 @@ class _QuestionsPageState extends State<QuestionsPage> {
                 child: PageView(
               controller: _pageController,
               children: [
-                for (int i = 0; i < totalQuestion; i++) QuestionAnswerWidget(),
+                for (int i = 0; i < Questions.length; i++)
+                  QuestionAnswerWidget(
+                    i: i,
+                  ),
               ],
               onPageChanged: (a) {
                 currentQuestion = a;
@@ -166,14 +169,19 @@ class _QuestionsPageState extends State<QuestionsPage> {
                       isExpanded: true,
                       lable: "Next",
                       ontap: () {
-                        // currentQuestion++;
-
-                        // setState(() {});
+                        setState(() {
+                          currentQuestion++;
+                          animateToQuestion();
+                        });
                         // animateToQuestion();
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return SummaryScreen();
-                        }));
+                        if (currentQuestion == Questions.length) {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return SummaryScreen(
+                              totalquestion: Questions.length,
+                            );
+                          }));
+                        }
                       },
                       isLeading: false,
                       icon: Padding(
@@ -200,7 +208,8 @@ class _QuestionsPageState extends State<QuestionsPage> {
 }
 
 class QuestionAnswerWidget extends StatelessWidget {
-  const QuestionAnswerWidget({Key? key}) : super(key: key);
+  int i;
+  QuestionAnswerWidget({Key? key, required this.i}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -214,7 +223,7 @@ class QuestionAnswerWidget extends StatelessWidget {
             height: 20,
           ),
           Text(
-            "Explain Advantages of IOT with sutable example",
+            "${Questions[i]}",
             style: Theme.of(context).textTheme.bodyText1,
             textAlign: TextAlign.center,
           ),
@@ -261,6 +270,7 @@ class QuestionsTab extends StatelessWidget {
   final int totalQuestion;
   final int currentQuestion;
   final Function(int) onTap;
+
   const QuestionsTab(
       {required this.totalQuestion,
       required this.currentQuestion,
@@ -306,3 +316,12 @@ class QuestionsTab extends StatelessWidget {
     );
   }
 }
+
+List Questions = [
+  "What is Accountability?",
+  "Why is it important to be fair and consistent when holding people accountable?",
+  "How can personal accountability affect the way others perceive you as a leader?",
+  "Give me three examples of situation that inaction can discredit your accountability",
+  "Give an example of a time where you had yo hold a teammate accountable?",
+  "Why is it important to address a situation immediately after it occurs rather than later?",
+];

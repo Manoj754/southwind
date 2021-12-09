@@ -12,56 +12,120 @@ class Post {
   final String user;
   final String message;
   final String profile;
+  final String time;
+  final String like;
+  final String comment;
   Post(
-      {this.image = const [
-        "https://images.unsplash.com/photo-1474552226712-ac0f0961a954?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80",
-      ],
-      this.name = "",
+      {this.image = const [],
+      this.name = "Southwind Ops",
       this.message = "",
       this.user = "",
-      this.profile =
-          "https://images.unsplash.com/photo-1466112928291-0903b80a9466?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80"});
+      this.time = "",
+      this.like = "",
+      this.comment = "",
+      this.profile = "assets/images/southwind_logo_single.png"});
 }
 
 List<Post> posts = [
   Post(
-      name: "Domnic Lakra",
-      message: "Good Moring!",
-      user: "Domnic_lakra",
-      profile:
-          "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-      image: [
-        "https://images.unsplash.com/photo-1474552226712-ac0f0961a954?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80",
-        "https://images.unsplash.com/photo-1637703279172-f44c5ed51712?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-      ]),
-  Post(
-      name: "Lakra Domic",
-      message: "Good Moring!",
-      user: "Domnic_lakra",
-      profile:
-          "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-      image: [
-        "https://images.unsplash.com/photo-1474552226712-ac0f0961a954?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80",
-        "https://images.unsplash.com/photo-1637703279172-f44c5ed51712?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-        "https://images.unsplash.com/photo-1637634789082-832d29a81c17?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-        "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80",
-        "https://images.unsplash.com/photo-1637580981046-6e14709be202?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
-        "https://images.unsplash.com/photo-1474552226712-ac0f0961a954?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80",
-        // "https://images.unsplash.com/photo-1637703279172-f44c5ed51712?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-        // "https://images.unsplash.com/photo-1637634789082-832d29a81c17?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-        // "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80",
-        // "https://images.unsplash.com/photo-1637580981046-6e14709be202?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-      ]),
-  Post(
-    name: "Domnic ",
+    name: "Southwind Ops",
     message:
-        "There is no such thing as a perfect person, but someone’s heart can have a perfect intention",
+        "Shoutout to Chris Scott on being named MVPs tech of the month for November! Way to be excellent, Chris!",
+    user: "________________",
+    time: "11h",
+    like: "23",
+    comment: "7",
+    image: ["assets/images/chris_scott.jpeg"],
+  ),
+  Post(
+    name: "Southwind Ops",
+    message:
+        "Shoutout to tre Daniels on being named Move of the Month for thr month of November! Keep up the great work, Tre!",
     user: "Domnic_lakra",
-    image: [
-      'https://images.unsplash.com/photo-1423479185712-25d4a4fe1006?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80'
-    ],
-    profile:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+    time: "15h",
+    like: "31",
+    comment: "8",
+    image: ["assets/images/tre_daniels.jpeg"],
+  ),
+  Post(
+    name: "Southwind Ops ",
+    message:
+        "Big shoutout to John Bonebrake for beign named the top Commercial Service Advisor for the month of November! Way to set the standard, Bonebrake!",
+    user: "Domnic_lakra",
+    time: "a day",
+    like: "40",
+    comment: "19",
+    image: ["assets/images/john_bonebrank.jpeg"],
+  ),
+  Post(
+    name: "Southwind Ops ",
+    message:
+        "Enrollment for the enterpreneurship has officially closed! Thank you to all who applied! New inductees will be announced on the 20th!",
+    user: "Domnic_lakra",
+    time: "a day",
+    like: "35",
+    comment: "5",
+    image: ["assets/images/enrollment.jpeg"],
+  ),
+  Post(
+    name: "Southwind Ops ",
+    message:
+        "Shoutout to Rhonda at MVP for Having another monster month last month! Check out her stats below. Keep up the amazing work, RVA!",
+    user: "Domnic_lakra",
+    time: "2 day",
+    like: "41",
+    comment: "12",
+    image: ["assets/images/rhonda_van.jpeg"],
+  ),
+  Post(
+    name: "Southwind Ops ",
+    message:
+        "This week we will be highlighting the top performers from different areas of Southwind! We're staring it off with the You Move Me Call Center, where Johnique wastop in class last month! Keep up the great work, Johnique!",
+    user: "Domnic_lakra",
+    time: "3 day",
+    like: "42",
+    comment: "14",
+    image: ["assets/images/johnique_cherry.jpeg"],
+  ),
+  Post(
+    name: "Southwind Ops ",
+    message:
+        "Happy birthday to these Southwinders this week and congrats to those celebrating their anniversary!",
+    user: "Domnic_lakra",
+    time: "3 day",
+    like: "41",
+    comment: "6",
+    image: ["assets/images/celebrations.jpeg"],
+  ),
+  Post(
+    name: "Southwind Ops ",
+    message:
+        "On his way into work earlie this week, Gabe saw a billboard for a missing person in the Sallt Lake / Park City area. Using the description of the man and the vehicle, him and Marcus drove out to Park City and they spotted the man that fit the description. They immediately called highway patrol to let them know and a few hours later they called them back to let them know that it was indeed the missing person! \n\n Way to go literally above and beyond to help serve your community, Gabe & Marcus!",
+    user: "Domnic_lakra",
+    time: "5 day",
+    like: "57",
+    comment: "13",
+    image: ["assets/images/got_junk.jpeg"],
+  ),
+  Post(
+    name: "Southwind Ops ",
+    message:
+        "Shoutout Tim & Lieth in Connecticut for being the newest CSL in Southwind!",
+    user: "Domnic_lakra",
+    time: "7 day",
+    like: "49",
+    comment: "11",
+    image: ["assets/images/tim_liciaga.jpeg"],
+  ),
+  Post(
+    name: "Southwind Ops ",
+    message:
+        "More great improvement on Google Reviews this past week! Keep pushing this last month, Southwind!",
+    user: "Domnic_lakra",
+    time: "7 day",
+    like: "40",
+    comment: "5",
+    image: ["assets/images/rankings.jpeg"],
   ),
 ];
 
@@ -159,9 +223,10 @@ class _FeedPostState extends State<FeedPost> {
               child: Row(
                 children: [
                   CircleAvatar(
-                    backgroundImage: NetworkImage(
+                    backgroundImage: AssetImage(
                       widget.post.profile,
                     ),
+                    backgroundColor: Colors.white,
                   ),
                   SizedBox(
                     width: 10,
@@ -175,7 +240,7 @@ class _FeedPostState extends State<FeedPost> {
                             fontSize: 16, fontWeight: FontWeight.w600),
                       ),
                       Text(
-                        "2d ago",
+                        "${widget.post.time} ago",
                         style: Theme.of(context).textTheme.bodyText1!.copyWith(
                             fontSize: 12,
                             fontWeight: FontWeight.w400,
@@ -217,7 +282,7 @@ class _FeedPostState extends State<FeedPost> {
                         SizedBox(
                           width: 5,
                         ),
-                        Text("45"),
+                        Text("${widget.post.like}"),
                         SizedBox(
                           width: 10,
                         ),
@@ -225,7 +290,7 @@ class _FeedPostState extends State<FeedPost> {
                         SizedBox(
                           width: 5,
                         ),
-                        Text("4"),
+                        Text("${widget.post.comment}"),
                         SizedBox(
                           width: 5,
                         ),
@@ -250,7 +315,7 @@ class _FeedPostState extends State<FeedPost> {
                         text: TextSpan(
                       children: [
                         TextSpan(
-                            text: "Domnic_Lakra  ",
+                            text: "${widget.post.name}  ",
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyText1!
@@ -363,21 +428,17 @@ class MultipleImageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 16 / 9,
-      child: Container(
-        child: PageView(
-          controller: Pagecontroller,
-          onPageChanged: onIndexChanged,
-          children: [
-            ...images
-                .map((e) => Image.network(
-                      e,
-                      fit: BoxFit.cover,
-                    ))
-                .toList(),
-          ],
-        ),
+    return Container(
+      child: PageView(
+        controller: Pagecontroller,
+        onPageChanged: onIndexChanged,
+        children: [
+          ...images
+              .map((e) => Image.asset(
+                    e,
+                  ))
+              .toList(),
+        ],
       ),
     );
     // return CarouselSlider.builder(
