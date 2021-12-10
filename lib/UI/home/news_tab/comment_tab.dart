@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:southwind/UI/theme/apptheme.dart';
 
 class CommentTab extends StatefulWidget {
   @override
@@ -13,7 +14,7 @@ class _CommentTabState extends State<CommentTab> {
       appBar: AppBar(
         title: Text(
           "Comments",
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold,color: primarySwatch[900]),
         ),
         centerTitle: true,
       ),
@@ -27,10 +28,12 @@ class _CommentTabState extends State<CommentTab> {
                 itemCount: Comments.length,
                 itemBuilder: (context, index) {
                   return Column(
+                    
                     children: [
                       Container(
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
                               //margin: EdgeInsets.symmetric(vertical: 5),
@@ -54,7 +57,7 @@ class _CommentTabState extends State<CommentTab> {
                                     children: [
                                       Text(
                                         "${Comments[index].name}",
-                                        style: TextStyle(fontSize: 12),
+                                        style: TextStyle(fontSize: 14),
                                       ),
                                       Container(
                                         width:
@@ -64,7 +67,7 @@ class _CommentTabState extends State<CommentTab> {
                                           "\"${Comments[index].mess}\"",
                                           maxLines: 2,
                                           style: TextStyle(
-                                              fontSize: 10, color: Colors.grey),
+                                              fontSize: 12, color: Colors.grey),
                                         ),
                                       ),
                                     ],
@@ -72,12 +75,9 @@ class _CommentTabState extends State<CommentTab> {
                                 ],
                               ),
                             ),
-                            Container(
-                              margin: EdgeInsets.only(right: 10, bottom: 30),
-                              // alignment: Alignment.centerRight,
-                              child: Text(
-                                "${Comments[index].time}",
-                                style: TextStyle(fontSize: 9),
+                            Text(
+                              "${Comments[index].time}",
+                              style: TextStyle(fontSize: 11,
                               ),
                             ),
                           ],

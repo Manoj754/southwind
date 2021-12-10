@@ -282,45 +282,42 @@ class _FeedPostState extends State<FeedPost> {
                   )),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(6.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Expanded(
-                    // flex: 1,
-                    child: Row(
-                      children: [
-                        Icon(Icons.favorite_border),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text("${widget.post.like}"),
-                        // SizedBox(
-                        //   width: 10,
-                        // ),
-                        IconButton(
-                          icon: Icon(FontAwesomeIcons.comment),
-                          onPressed: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => CommentTab()));
-                          },
-                        ),
-                        // SizedBox(
-                        //   width: 5,
-                        // ),
-                        Text("${widget.post.comment}"),
-                        SizedBox(
-                          width: 5,
-                        ),
-                      ],
-                    ),
+                  Row(
+                    children: [
+                      Icon(Icons.favorite_border),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Text("${widget.post.like}"),
+                      // SizedBox(
+                      //   width: 10,
+                      // ),
+                      IconButton(
+                        icon: Icon(FontAwesomeIcons.comment),
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => CommentTab()));
+                        },
+                      ),
+                      // SizedBox(
+                      //   width: 5,
+                      // ),
+                      Text("${widget.post.comment}"),
+                      SizedBox(
+                        width: 5,
+                      ),
+                    ],
                   ),
                   Expanded(
                     child: ImageIndicator(
                         pageController: controller,
                         totalIndex: widget.post.image.length),
                   ),
-                  // Expanded(child: Container()),
+                  Expanded(child: Container()),
                 ],
               ),
             ),
