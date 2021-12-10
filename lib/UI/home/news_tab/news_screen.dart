@@ -1,8 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:southwind/UI/home/news_tab/comment_tab.dart';
 import 'package:southwind/UI/theme/apptheme.dart';
 import 'package:southwind/component/bottom_navigation.dart';
 import 'package:southwind/component/navigationtheme.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 const String profilePath = "assets/images/image2.jpg";
 
@@ -293,13 +295,19 @@ class _FeedPostState extends State<FeedPost> {
                           width: 5,
                         ),
                         Text("${widget.post.like}"),
-                        SizedBox(
-                          width: 10,
+                        // SizedBox(
+                        //   width: 10,
+                        // ),
+                        IconButton(
+                          icon: Icon(FontAwesomeIcons.comment),
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => CommentTab()));
+                          },
                         ),
-                        Icon(Icons.chat_bubble_outline),
-                        SizedBox(
-                          width: 5,
-                        ),
+                        // SizedBox(
+                        //   width: 5,
+                        // ),
                         Text("${widget.post.comment}"),
                         SizedBox(
                           width: 5,
@@ -312,7 +320,7 @@ class _FeedPostState extends State<FeedPost> {
                         pageController: controller,
                         totalIndex: widget.post.image.length),
                   ),
-                  Expanded(child: Container()),
+                  // Expanded(child: Container()),
                 ],
               ),
             ),
