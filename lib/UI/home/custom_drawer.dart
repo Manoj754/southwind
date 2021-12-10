@@ -21,7 +21,7 @@ class CustomDrawer extends StatefulWidget {
 
 class _CustomDrawerState extends State<CustomDrawer> {
   Widget screenView = NewsScreen();
-  DrawerIndex drawerIndex = DrawerIndex.LeaderBoard;
+  DrawerIndex drawerIndex = DrawerIndex.Home;
   int currentBottomBarIndex = 0;
   int selectedIndex = 0;
   GlobalKey<SliderMenuContainerState> _key =
