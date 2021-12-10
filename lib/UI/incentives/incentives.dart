@@ -1,4 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
+import 'package:southwind/UI/components/common_button.dart';
 import 'package:southwind/UI/theme/apptheme.dart';
 
 class Incentives extends StatefulWidget {
@@ -168,19 +171,28 @@ class _IncentivesState extends State<Incentives> {
                         ),
                         Spacer(),
                         if (selectedIndex != 2)
-                          Center(
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  color: primarySwatch[100],
-                                  border:
-                                      Border.all(color: primarySwatch[900]!),
-                                  borderRadius: BorderRadius.circular(10)),
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 12, vertical: 2),
-                                child: Text(
-                                  "Buy",
-                                  style: TextStyle(fontSize: 14),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => BuyTab(
+                                        image: incentivesList[index].image,
+                                        name: incentivesList[index].name,
+                                      )));
+                            },
+                            child: Center(
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    color: primarySwatch[100],
+                                    border:
+                                        Border.all(color: primarySwatch[900]!),
+                                    borderRadius: BorderRadius.circular(10)),
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 12, vertical: 2),
+                                  child: Text(
+                                    "Buy",
+                                    style: TextStyle(fontSize: 14),
+                                  ),
                                 ),
                               ),
                             ),
@@ -294,6 +306,7 @@ class Purchased {
   final String name;
   final String cost;
   final String date;
+
   Purchased({this.image = "", this.name = "", this.cost = "", this.date = ""});
 }
 
@@ -305,3 +318,155 @@ List<Purchased> purchaseds = [
       date: "08/08/2021"),
   Purchased(image: "", name: "text", cost: "1", date: "04/12/2019")
 ];
+
+class BuyTab extends StatefulWidget {
+  String image;
+  String name;
+
+  BuyTab({Key? key, required this.image, required this.name}) : super(key: key);
+
+  @override
+  _BuyTabState createState() => _BuyTabState();
+}
+
+class _BuyTabState extends State<BuyTab> {
+  GlobalKey<FormState> _Formkey = GlobalKey<FormState>();
+  TextEditingController _answerController = TextEditingController();
+  String answer = "";
+
+  @override
+  Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    return SafeArea(
+        child: Scaffold(
+      appBar: AppBar(),
+      body: Container(
+        margin: EdgeInsets.symmetric(
+          horizontal: 5,
+        ),
+        child: Column(
+          children: [
+            Expanded(
+              child: SingleChildScrollView(
+                child: Form(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: size.height * 0.03,
+                      ),
+                      Container(
+                        height: size.height * 0.3,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            image: DecorationImage(
+                                image: NetworkImage(widget.image),
+                                fit: BoxFit.cover)),
+                      ),
+                      SizedBox(
+                        height: size.height * 0.03,
+                      ),
+                      Container(
+                        margin: EdgeInsets.symmetric(
+                          horizontal: 10,
+                        ),
+                        child: Text(
+                          "${widget.name}",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 25),
+                        ),
+                      ),
+                      SizedBox(
+                        height: size.height * 0.01,
+                      ),
+                      Container(
+                        margin: EdgeInsets.symmetric(
+                          horizontal: 10,
+                        ),
+                        child: Text(
+                            "THis is good for one day off work. Value is an 8/hour day PAID using hourlu rate."),
+                      ),
+                      SizedBox(
+                        height: size.height * 0.03,
+                      ),
+                      Container(
+                        margin: EdgeInsets.symmetric(horizontal: 13),
+                        child: TextFormField(
+                          controller: _answerController,
+                          // validator: (val){
+                          //   if(val!.isEmpty){
+                          //     return "Please enter comment";
+                          //   }
+                          // },
+                          onChanged: (val) {
+                            setState(() {
+                              answer = val;
+                            });
+                          },
+                          maxLines: 6,
+                          style: TextStyle(
+                            fontSize: 16,
+                          ),
+                          textInputAction: TextInputAction.done,
+                          decoration: InputDecoration(
+                              hintText: "Enter Your Answer",
+                              hintStyle: TextStyle(color: Colors.grey),
+                              contentPadding: EdgeInsets.symmetric(
+                                  horizontal: 8, vertical: 4),
+                              isCollapsed: true,
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(5),
+                                  borderSide: BorderSide(
+                                      width: .5, color: primarySwatch[700]!)),
+                              enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(5),
+                                  borderSide: BorderSide(
+                                      width: .5, color: primarySwatch[700]!)),
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(5),
+                                  borderSide: BorderSide(
+                                      width: 1, color: primaryColor))),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              height: 50,
+              margin: EdgeInsets.only(bottom: 10, left: 5, right: 5),
+              child: CommonButton(
+                lable: "BUY",
+                bgColor: primarySwatch.shade900,
+                borderRadius: 5,
+                isExpanded: true,
+                textStyle: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                    color: Colors.white),
+                ontap: () {
+                  if (answer.isEmpty) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text("Please Enter comment"),
+                        behavior: SnackBarBehavior.floating,
+                        duration: Duration(milliseconds: 1000),
+                        backgroundColor: Colors.grey[800],
+                        margin:
+                            EdgeInsets.only(bottom: 70, right: 20, left: 20),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(24),
+                        ),
+                      ),
+                    );
+                  }
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
+    ));
+  }
+}

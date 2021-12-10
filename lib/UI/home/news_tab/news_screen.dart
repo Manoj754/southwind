@@ -35,7 +35,13 @@ List<Post> posts = [
     time: "11h",
     like: "23",
     comment: "7",
-    image: ["assets/images/chris_scott.jpeg"],
+    image: [
+      "assets/images/chris_scott.jpeg",
+      "assets/images/tre_daniels.jpeg",
+      "assets/images/john_bonebrank.jpeg",
+      "assets/images/rhonda_van.jpeg",
+      "assets/images/johnique_cherry.jpeg",
+    ],
   ),
   Post(
     name: "Southwind Ops",
@@ -105,7 +111,11 @@ List<Post> posts = [
     time: "5 day",
     like: "57",
     comment: "13",
-    image: ["assets/images/got_junk.jpeg"],
+    image: [
+      "assets/images/got_junk.jpeg",
+      "assets/images/tim_liciaga.jpeg",
+      "assets/images/rankings.jpeg",
+    ],
   ),
   Post(
     name: "Southwind Ops ",
@@ -302,7 +312,7 @@ class _FeedPostState extends State<FeedPost> {
                         pageController: controller,
                         totalIndex: widget.post.image.length),
                   ),
-                  // Expanded(child: Container()),
+                  Expanded(child: Container()),
                 ],
               ),
             ),

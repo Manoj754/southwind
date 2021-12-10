@@ -31,7 +31,7 @@ class AllChatList extends StatelessWidget {
             ],
           );
         },
-        itemCount: 15,
+        itemCount: 2,
       ),
     );
   }

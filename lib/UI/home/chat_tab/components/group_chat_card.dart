@@ -70,7 +70,7 @@ class GroupChatCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Group name",
+                    "Southwinders",
                     style: TextStyle(
                         fontSize: 18,
                         color: primarySwatch[900],
