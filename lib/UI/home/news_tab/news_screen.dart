@@ -1,8 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:southwind/UI/home/news_tab/comment_tab.dart';
 import 'package:southwind/UI/theme/apptheme.dart';
 import 'package:southwind/component/bottom_navigation.dart';
 import 'package:southwind/component/navigationtheme.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 const String profilePath = "assets/images/image2.jpg";
 
@@ -350,32 +352,35 @@ class _FeedPostState extends State<FeedPost> {
                   )),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(6.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Expanded(
-                    // flex: 1,
-                    child: Row(
-                      children: [
-                        Icon(Icons.favorite_border),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text("${widget.post.like}"),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Icon(Icons.chat_bubble_outline),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text("${widget.post.comment}"),
-                        SizedBox(
-                          width: 5,
-                        ),
-                      ],
-                    ),
+                  Row(
+                    children: [
+                      Icon(Icons.favorite_border),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Text("${widget.post.like}"),
+                      // SizedBox(
+                      //   width: 10,
+                      // ),
+                      IconButton(
+                        icon: Icon(FontAwesomeIcons.comment),
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => CommentTab()));
+                        },
+                      ),
+                      // SizedBox(
+                      //   width: 5,
+                      // ),
+                      Text("${widget.post.comment}"),
+                      SizedBox(
+                        width: 5,
+                      ),
+                    ],
                   ),
                   Expanded(
                     child: ImageIndicator(
