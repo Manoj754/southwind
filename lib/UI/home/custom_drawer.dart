@@ -21,7 +21,7 @@ class CustomDrawer extends StatefulWidget {
 
 class _CustomDrawerState extends State<CustomDrawer> {
   Widget screenView = NewsScreen();
-  DrawerIndex drawerIndex = DrawerIndex.LeaderBoard;
+  DrawerIndex drawerIndex = DrawerIndex.Home;
   int currentBottomBarIndex = 0;
   int selectedIndex = 0;
   GlobalKey<SliderMenuContainerState> _key =
@@ -129,7 +129,6 @@ class _CustomDrawerState extends State<CustomDrawer> {
   }
 }
 
-
 // class HomePage extends StatefulWidget {
 //   const HomePage({Key? key}) : super(key: key);
 
@@ -179,11 +178,11 @@ class _CustomDrawerState extends State<CustomDrawer> {
 //             'assets/images/navigation.png',
 //             height: 30,
 //           ),
-          // title: Container(
-          //   // color: Colors.teal,
-          //   height: 30,
-          //   child: Image.asset("assets/images/southwind_logo.png"),
-          // ),
+// title: Container(
+//   // color: Colors.teal,
+//   height: 30,
+//   child: Image.asset("assets/images/southwind_logo.png"),
+// ),
 //           sliderMenu: MenuWidget(
 //             onItemClick: (title) {
 //               _key.currentState!.closeDrawer();

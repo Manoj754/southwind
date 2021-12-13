@@ -28,6 +28,76 @@ class Post {
 
 List<Post> posts = [
   Post(
+    name: "Southwind Ops ",
+    message:
+        "Happy birthday to these Southwinders this week and congrats to those celebrating their anniversary!",
+    user: "Domnic_lakra",
+    time: "10 h",
+    like: "14",
+    comment: "2",
+    image: ["assets/images/celebrations.jpeg"],
+  ),
+  Post(
+    name: "Southwind Ops ",
+    message:
+        "To wrap up performers week, we have our business of the month which was Indianapolis! Congrats on an amazing month, tea!",
+    user: "Domnic_lakra",
+    time: "a day",
+    like: "37",
+    comment: "13",
+    image: ["assets/images/businesofthemonth.png"],
+  ),
+  Post(
+    name: "Southwind Ops ",
+    message:
+        "Huge shoutout to Salt Lake City for being the most engaged franchise on the Southwinds App for the month of November! Bryce and his team liked and commented on all post from last month, amazing work! Thank you for continued support of the app!",
+    user: "Domnic_lakra",
+    time: "a day",
+    like: "41",
+    comment: "14",
+    image: ["assets/images/saltlake.png"],
+  ),
+  Post(
+    name: "Southwind Ops ",
+    message:
+        "The top truckers from every Junk franchise for the month of November! Great work all aroung, Southwind!",
+    user: "Domnic_lakra",
+    time: "3 day",
+    like: "50",
+    comment: "18",
+    image: ["assets/images/totruckers.png"],
+  ),
+  Post(
+    name: "Southwind Ops ",
+    message:
+        "More great career path advancements to recognize today! Shoutput to Raymond and DaQuan on being the newest CSLs in Southwind!",
+    user: "Domnic_lakra",
+    time: "4 day",
+    like: "41",
+    comment: "14",
+    image: ["assets/images/daquanmartin.png"],
+  ),
+  Post(
+    name: "Southwind Ops ",
+    message:
+        "Shoutout to Beau in SLC on also being the newest CSL in Southwind!",
+    user: "Domnic_lakra",
+    time: "4 day",
+    like: "38",
+    comment: "15",
+    image: ["assets/images/beauflygare.png"],
+  ),
+  Post(
+    name: "Southwind Ops ",
+    message:
+        "Today is all about career path recognition! Starting out with KC, shoutout toRichard, River, and Zach on being the newest CSIs in Southwind!",
+    user: "Domnic_lakra",
+    time: "4 day",
+    like: "38",
+    comment: "12",
+    image: ["assets/images/richardfisher.png"],
+  ),
+  Post(
     name: "Southwind Ops",
     message:
         "Shoutout to Chris Scott on being named MVPs tech of the month for November! Way to be excellent, Chris!",
