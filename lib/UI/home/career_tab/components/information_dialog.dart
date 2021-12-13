@@ -25,6 +25,12 @@ class _InformationDialogState extends State<InformationDialog> {
   late BetterPlayerController _betterPlayerController;
   bool isLoading = true;
   @override
+  void dispose() {
+    // TODO: implement dispose
+    _controller.dispose();
+    super.dispose();
+  }
+  @override
   void initState() {
     super.initState();
     _controller = VideoPlayerController.network(
