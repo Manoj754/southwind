@@ -112,29 +112,48 @@ class _Log_InState extends State<Log_In> {
                   showDialog(
                     context: context,
                     builder: (ctx) => AlertDialog(
-                      title: Text("Forgot Password"),
+                      title: Text("Forgot Password?"),
                       content: EditTextfild(
                         controller: _ForgotPasswordcontroller,
-                        hint: "E-mail Address",
+                        hint: "Enter your email",
                       ),
                       actions: <Widget>[
-                        FlatButton(
-                          onPressed: () {
-                            Navigator.of(ctx).pop();
-                          },
-                          child: Text("Cancel"),
+                        Row(
+                          children: [
+                            CommonButton(
+                              ontap: () {
+                                Navigator.of(context).pop();
+                              },
+                              bgColor: primarySwatch.shade900,
+                              lable: "Cancel",
+                              isExpanded: true,
+                              textStyle: TextStyle(
+                                  letterSpacing: 0.5,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            CommonButton(
+                              ontap: () {
+                                Navigator.of(context).pop();
+                              },
+                              bgColor: primarySwatch.shade900,
+                              isExpanded: true,
+                              lable: "Reset",
+                              textStyle: TextStyle(
+                                  letterSpacing: 0.5,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            )
+                          ],
                         ),
-                        FlatButton(
-                          onPressed: () {
-                            Navigator.of(ctx).pop();
-                          },
-                          child: Text("Reset"),
+                        SizedBox(
+                          height: 10,
                         ),
                       ],
                     ),
                   );
                 },
-                child: Text(
+                child: const Text(
                   "Forgot Password?",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
