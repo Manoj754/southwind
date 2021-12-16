@@ -138,7 +138,10 @@ class SingleCollection extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 4),
       child: InkWell(
         onTap: () {
-          Navigator.pushNamed(context, Routes.QuestionPage);
+          Navigator.pushNamed(
+            context,
+            Routes.QuestionPage,
+          );
         },
         child: Material(
           elevation: 3,
@@ -186,8 +189,8 @@ class QuestionCollection {
 
 final List<QuestionCollection> collections = [
   QuestionCollection(
-      title: "Being Exceptional at Accountabilty", totalQuestion: 12),
-  QuestionCollection(title: "Cautious Driving", totalQuestion: 10),
+      title: "Being Exceptional at Accountabilty", totalQuestion: 6),
+  QuestionCollection(title: "Cautious Driving", totalQuestion: 11),
   QuestionCollection(title: "Closing an On Site Estimate", totalQuestion: 4),
   QuestionCollection(
       title: "Coaching Relational vs. Transactional", totalQuestion: 20),

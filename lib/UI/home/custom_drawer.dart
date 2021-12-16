@@ -4,6 +4,7 @@ import 'package:southwind/UI/home/news_tab/news_screen.dart';
 import 'package:southwind/UI/incentives/incentives.dart';
 import 'package:southwind/UI/leader_board/leader_board.dart';
 import 'package:southwind/UI/library/library.dart';
+import 'package:southwind/UI/surveys_tab/surveys_tab.dart';
 import 'package:southwind/UI/theme/apptheme.dart';
 import 'package:southwind/UI/time_card/time_card.dart';
 import 'package:southwind/component/bottom_navigation.dart';
@@ -21,7 +22,7 @@ class CustomDrawer extends StatefulWidget {
 
 class _CustomDrawerState extends State<CustomDrawer> {
   Widget screenView = NewsScreen();
-  DrawerIndex drawerIndex = DrawerIndex.LeaderBoard;
+  DrawerIndex drawerIndex = DrawerIndex.Home;
   int currentBottomBarIndex = 0;
   int selectedIndex = 0;
   GlobalKey<SliderMenuContainerState> _key =
@@ -33,6 +34,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
   void initState() {
     title = "Southwind";
     super.initState();
+    Duration();
   }
   // Widget screenView = HomeScreen(onindexChange: onindexChange)
 
@@ -105,18 +107,18 @@ class _CustomDrawerState extends State<CustomDrawer> {
         return Library();
         break;
       case DrawerIndex.Surveys:
-        // TODO: Handle this case.
+        return Surveys_Tab();
         break;
-      case DrawerIndex.Challenges:
-        // TODO: Handle this case.
-        break;
+      // case DrawerIndex.Challenges:
+      //   // TODO: Handle this case.
+      //   break;
       case DrawerIndex.Learning:
         // TODO: Handle this case.
         break;
       case DrawerIndex.CardTime:
         return TimeCardScreen();
       // break;
-      case DrawerIndex.Account:
+      case DrawerIndex.Goals:
         // TODO: Handle this case.
         break;
     }
@@ -128,7 +130,6 @@ class _CustomDrawerState extends State<CustomDrawer> {
     );
   }
 }
-
 
 // class HomePage extends StatefulWidget {
 //   const HomePage({Key? key}) : super(key: key);
@@ -179,11 +180,11 @@ class _CustomDrawerState extends State<CustomDrawer> {
 //             'assets/images/navigation.png',
 //             height: 30,
 //           ),
-          // title: Container(
-          //   // color: Colors.teal,
-          //   height: 30,
-          //   child: Image.asset("assets/images/southwind_logo.png"),
-          // ),
+// title: Container(
+//   // color: Colors.teal,
+//   height: 30,
+//   child: Image.asset("assets/images/southwind_logo.png"),
+// ),
 //           sliderMenu: MenuWidget(
 //             onItemClick: (title) {
 //               _key.currentState!.closeDrawer();

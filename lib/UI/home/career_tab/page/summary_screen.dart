@@ -6,8 +6,8 @@ import 'package:southwind/UI/home/career_tab/page/congratsScreen.dart';
 import 'package:southwind/UI/theme/apptheme.dart';
 
 class SummaryScreen extends StatelessWidget {
-  const SummaryScreen({Key? key}) : super(key: key);
-
+  int totalquestion;
+  SummaryScreen({Key? key, required this.totalquestion}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     final double radius = 20;
@@ -40,7 +40,7 @@ class SummaryScreen extends StatelessWidget {
                                 .copyWith(fontSize: 20),
                           ),
                           Text(
-                            "Total Questions : 16",
+                            "Total Questions : ${totalquestion}",
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyText1!

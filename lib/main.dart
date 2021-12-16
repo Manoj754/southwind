@@ -58,7 +58,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: generateMaterialColor(primaryColor),
       ),
       onGenerateRoute: Routes.onRouteGenerate,
-      home: CustomDrawer(),
+      initialRoute: Routes.login,
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../UI/login/log_in.dart';
 import 'package:southwind/UI/theme/apptheme.dart';
 import 'package:southwind/routes/routes.dart';
 
@@ -11,11 +12,11 @@ enum DrawerIndex {
   Library,
   // Passbook,
   Surveys,
-  Challenges,
+  // Challenges,
   Learning,
   CardTime,
   // Incentives,
-  Account
+  Goals,
 }
 
 class DrawerUserController extends StatefulWidget {
@@ -166,48 +167,58 @@ class _DrawerUserControllerState extends State<DrawerUserController>
                     children: <Widget>[
                       Scaffold(
                         appBar: AppBar(
-                          leading: SizedBox(
-                            width: AppBar().preferredSize.height - 8,
-                            height: AppBar().preferredSize.height - 8,
-                            child: Material(
-                              borderRadius: BorderRadius.only(
-                                  topRight: Radius.circular(20),
-                                  bottomRight: Radius.circular(20)),
-                              color: Colors.transparent,
-                              child: InkWell(
-                                borderRadius: BorderRadius.circular(
-                                    AppBar().preferredSize.height),
-                                child: Center(
-                                  // if you use your own menu view UI you add form initialization
-                                  child: widget.menuView != null
-                                      ? widget.menuView
-                                      : AnimatedIcon(
-                                          icon: widget.animatedIconData != null
-                                              ? widget.animatedIconData
-                                              : AnimatedIcons.close_menu,
-                                          color: Colors.black,
-                                          size: 30,
-                                          progress: iconAnimationController),
+                            leading: SizedBox(
+                              width: AppBar().preferredSize.height - 8,
+                              height: AppBar().preferredSize.height - 8,
+                              child: Material(
+                                borderRadius: BorderRadius.only(
+                                    topRight: Radius.circular(20),
+                                    bottomRight: Radius.circular(20)),
+                                color: Colors.transparent,
+                                child: InkWell(
+                                  borderRadius: BorderRadius.circular(
+                                      AppBar().preferredSize.height),
+                                  child: Center(
+                                    // if you use your own menu view UI you add form initialization
+                                    child: widget.menuView != null
+                                        ? widget.menuView
+                                        : AnimatedIcon(
+                                            icon:
+                                                widget.animatedIconData != null
+                                                    ? widget.animatedIconData
+                                                    : AnimatedIcons.close_menu,
+                                            color: Colors.black,
+                                            size: 30,
+                                            progress: iconAnimationController),
+                                  ),
+                                  onTap: () {
+                                    FocusScope.of(context)
+                                        .requestFocus(FocusNode());
+                                    onDrawerClick();
+                                  },
                                 ),
-                                onTap: () {
-                                  FocusScope.of(context)
-                                      .requestFocus(FocusNode());
-                                  onDrawerClick();
-                                },
                               ),
                             ),
-                          ),
-                          // shadowColor: Colors.red,
-                          backgroundColor: Colors.white,
-                          title: Container(
-                            // color: Colors.teal,
-                            height: 25,
-                            child:
-                                Image.asset("assets/images/southwind_logo.png"),
-                          ),
-                          centerTitle: true,
-                          actions: _getActions,
-                        ),
+                            // shadowColor: Colors.red,
+                            backgroundColor: Colors.white,
+                            title: Container(
+                              // color: Colors.teal,
+                              height: 25,
+                              child: Image.asset(
+                                  "assets/images/southwind_logo.png"),
+                            ),
+                            centerTitle: true,
+                            actions: [
+                              (widget.screenIndex == DrawerIndex.Incentives)
+                                  ? IconButton(
+                                      icon: Icon(Icons.history),
+                                      onPressed: () {
+                                        Navigator.of(context)
+                                            .pushNamed(Routes.history);
+                                      },
+                                    )
+                                  : Container(),
+                            ]),
                         body: widget.screenView,
                       ),
 
@@ -291,24 +302,24 @@ class _DrawerUserControllerState extends State<DrawerUserController>
   }
 
   List<Widget> get _getActions {
-    switch (widget.currentBottomBarIndex) {
-      // case 4:
-      //   return [
-      //     Padding(
-      //       padding: const EdgeInsets.only(right: 10),
-      //       child: InkWell(
-      //         onTap: () {
-      //           Navigator.pushNamed(context, Routes.clockInOutScreen);
-      //         },
-      //         child: Image.asset(
-      //           "assets/images/portfolio.png",
-      //           color: primarySwatch[900],
-      //           width: 25,
-      //         ),
-      //       ),
-      //     )
-      //   ];
-    }
+    // switch (widget.currentBottomBarIndex) {
+    //   case 3:
+    //     return [
+    //       Padding(
+    //         padding: const EdgeInsets.only(right: 10),
+    //         child: InkWell(
+    //           onTap: () {
+    //             Navigator.pushNamed(context, Routes.clockInOutScreen);
+    //           },
+    //           child: Image.asset(
+    //             "assets/images/portfolio.png",
+    //             color: primarySwatch[900],
+    //             width: 25,
+    //           ),
+    //         ),
+    //       )
+    //     ];
+    // }
     return [];
   }
 
@@ -392,11 +403,11 @@ class _HomeDrawerState extends State<HomeDrawer> {
         labelName: 'Settings',
         icon: Icon(CupertinoIcons.settings),
       ),
-      DrawerList(
-        index: DrawerIndex.Challenges,
-        labelName: 'Help',
-        icon: Icon(CupertinoIcons.info),
-      ),
+      // DrawerList(
+      //   index: DrawerIndex.Challenges,
+      //   labelName: 'Help',
+      //   icon: Icon(CupertinoIcons.info),
+      // ),
       DrawerList(
         index: DrawerIndex.Learning,
         labelName: 'Refer',
@@ -443,11 +454,11 @@ class _HomeDrawerState extends State<HomeDrawer> {
         labelName: 'Surveys',
         icon: Icon(Icons.analytics_outlined),
       ),
-      DrawerList(
-        index: DrawerIndex.Challenges,
-        labelName: 'Challenges',
-        icon: Icon(Icons.flag_outlined),
-      ),
+      // DrawerList(
+      //   index: DrawerIndex.Challenges,
+      //   labelName: 'Challenges',
+      //   icon: Icon(Icons.flag_outlined),
+      // ),
       DrawerList(
         index: DrawerIndex.Learning,
         labelName: 'Learning',
@@ -459,8 +470,8 @@ class _HomeDrawerState extends State<HomeDrawer> {
         icon: Icon(Icons.timer),
       ),
       DrawerList(
-        index: DrawerIndex.Account,
-        labelName: 'Account',
+        index: DrawerIndex.Goals,
+        labelName: 'Goals',
         icon: Icon(Icons.manage_accounts_outlined),
       ),
     ];
@@ -576,24 +587,32 @@ class _HomeDrawerState extends State<HomeDrawer> {
               ),
               Column(
                 children: <Widget>[
-                  ListTile(
-                    title: Text(
-                      'Sign Out',
-                      style: TextStyle(
-                        // fontFamily: AppTheme.fontName,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 16,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).pushAndRemoveUntil(
+                          MaterialPageRoute(builder: (context) => Log_In()),
+                          (route) => false);
+                    },
+                    child: ListTile(
+                      title: Text(
+                        'Sign Out',
+                        style: TextStyle(
+                          // fontFamily: AppTheme.fontName,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 16,
+                          color: Colors.black,
+                        ),
+                        textAlign: TextAlign.left,
+                      ),
+                      trailing: Icon(
+                        Icons.power_settings_new,
                         color: Colors.black,
                       ),
-                      textAlign: TextAlign.left,
+                      onTap: () {
+                        Navigator.of(context).pushNamedAndRemoveUntil(
+                            Routes.login, (route) => false);
+                      },
                     ),
-                    trailing: Icon(
-                      Icons.power_settings_new,
-                      color: Colors.black,
-                    ),
-                    onTap: () {
-                      // _logoutDialog();
-                    },
                   ),
                   SizedBox(
                     height: MediaQuery.of(context).padding.bottom,

@@ -58,6 +58,8 @@ class _VideoTabState extends State<VideoTab> {
         centerTitle: true,
         title: Text(
           widget.title,
+          maxLines:1,
+          overflow: TextOverflow.clip,
           style: TextStyle(
             color: primarySwatch[900],
           ),

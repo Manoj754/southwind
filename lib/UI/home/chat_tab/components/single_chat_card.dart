@@ -43,7 +43,7 @@ class SingleChatCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Domic lakra",
+                    "test",
                     style: TextStyle(
                         fontSize: 18,
                         color: primarySwatch[900],
