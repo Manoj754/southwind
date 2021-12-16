@@ -26,10 +26,10 @@ class _InformationDialogState extends State<InformationDialog> {
   bool isLoading = true;
   @override
   void dispose() {
-    // TODO: implement dispose
     _controller.dispose();
     super.dispose();
   }
+
   @override
   void initState() {
     super.initState();
@@ -57,12 +57,6 @@ class _InformationDialogState extends State<InformationDialog> {
     )));
     _betterPlayerController.setupDataSource(BetterPlayerDataSource.network(
         "https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4"));
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
   }
 
   @override
