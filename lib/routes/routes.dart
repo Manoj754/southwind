@@ -4,7 +4,15 @@ import 'package:southwind/UI/home/chat_tab/group_Info.dart';
 import 'package:southwind/UI/home/chat_tab/group_chat_screen.dart';
 import 'package:southwind/UI/home/chat_tab/single_chat_screen.dart';
 import 'package:southwind/UI/home/clock_in_out/work_history.dart';
+import 'package:southwind/UI/home/custom_drawer.dart';
 import 'package:southwind/UI/home/home_screen.dart';
+import 'package:southwind/UI/incentives/incentives.dart';
+import 'package:southwind/UI/incentives/page/history.dart';
+import 'package:southwind/UI/login/log_in.dart';
+import 'package:southwind/UI/surveys_tab/Page/congratspage.dart';
+import 'package:southwind/UI/surveys_tab/Page/congratspage.dart';
+import 'package:southwind/UI/surveys_tab/Page/question_tab.dart';
+import 'package:southwind/UI/surveys_tab/Page/summarypage.dart';
 
 class Routes {
   static const String homePage = "/homePage";
@@ -13,6 +21,12 @@ class Routes {
   static const String groupChatScreen = "/GroupChatScreen";
   static const String groupInfo = "/GroupInfo";
   static const String clockInOutScreen = "/clockInOutScreen";
+  static const String question_tab = "/Question_tab";
+  static const String question_summary = "/Question_summary";
+  static const String congrat_Tab = "/CongratTab";
+  static const String customDrawer = "/customerDrawer";
+  static const String login = "log_in";
+  static const String history = "history";
 
   static Route<dynamic> onRouteGenerate(RouteSettings settings) {
     return MaterialPageRoute(builder: (context) {
@@ -35,6 +49,26 @@ class Routes {
           break;
         case Routes.groupChatScreen:
           page = GroupChatScreen();
+          break;
+        case Routes.question_tab:
+          page = Questions_Tab();
+          break;
+        case Routes.congrat_Tab:
+          page = CongratTab();
+          break;
+        case Routes.question_summary:
+          page = SummaryTab(
+            totalquestion: 6,
+          );
+          break;
+        case Routes.customDrawer:
+          page = CustomDrawer();
+          break;
+        case Routes.login:
+          page = Log_In();
+          break;
+        case Routes.history:
+          page = History();
           break;
         default:
           page = Container(

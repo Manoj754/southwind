@@ -4,6 +4,7 @@ import 'package:southwind/UI/home/news_tab/news_screen.dart';
 import 'package:southwind/UI/incentives/incentives.dart';
 import 'package:southwind/UI/leader_board/leader_board.dart';
 import 'package:southwind/UI/library/library.dart';
+import 'package:southwind/UI/surveys_tab/surveys_tab.dart';
 import 'package:southwind/UI/theme/apptheme.dart';
 import 'package:southwind/UI/time_card/time_card.dart';
 import 'package:southwind/component/bottom_navigation.dart';
@@ -33,6 +34,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
   void initState() {
     title = "Southwind";
     super.initState();
+    Duration();
   }
   // Widget screenView = HomeScreen(onindexChange: onindexChange)
 
@@ -105,18 +107,18 @@ class _CustomDrawerState extends State<CustomDrawer> {
         return Library();
         break;
       case DrawerIndex.Surveys:
-        // TODO: Handle this case.
+        return Surveys_Tab();
         break;
-      case DrawerIndex.Challenges:
-        // TODO: Handle this case.
-        break;
+      // case DrawerIndex.Challenges:
+      //   // TODO: Handle this case.
+      //   break;
       case DrawerIndex.Learning:
         // TODO: Handle this case.
         break;
       case DrawerIndex.CardTime:
         return TimeCardScreen();
       // break;
-      case DrawerIndex.Account:
+      case DrawerIndex.Goals:
         // TODO: Handle this case.
         break;
     }

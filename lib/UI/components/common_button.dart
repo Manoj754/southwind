@@ -38,39 +38,38 @@ class CommonButton extends StatelessWidget {
                   BorderRadius.circular(borderRadius ?? defaultBorderRadius),
               border: Border.all(color: primarySwatch[900]!)),
           child: Center(
-              child: icon != null
-                  ? Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        if (isLeading!) icon!,
-                        Expanded(
-                          child: Align(
-                            alignment: isLeading!
-                                ? Alignment.lerp(
-                                    Alignment.center, Alignment.centerLeft, .4)!
-                                : Alignment.lerp(Alignment.center,
-                                    Alignment.centerRight, .4)!,
-                            child: Text(
-                              lable ?? "Button",
-                              style: textStyle ??
-                                  Theme.of(context)
-                                      .textTheme
-                                      .bodyText1!
-                                      .copyWith(
-                                          fontSize: 18,
-                                          color: primarySwatch[900]),
-                            ),
+            child: icon != null
+                ? Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      if (isLeading!) icon!,
+                      Expanded(
+                        child: Align(
+                          alignment: isLeading!
+                              ? Alignment.lerp(
+                                  Alignment.center, Alignment.centerLeft, .4)!
+                              : Alignment.lerp(
+                                  Alignment.center, Alignment.centerRight, .4)!,
+                          child: Text(
+                            lable ?? "Button",
+                            style: textStyle ??
+                                Theme.of(context).textTheme.bodyText1!.copyWith(
+                                    fontSize: 18, color: primarySwatch[900]),
                           ),
                         ),
-                        if (!isLeading!) icon!,
-                      ],
-                    )
-                  : Text(
-                      lable ?? "Button",
-                      style: textStyle ??
-                          Theme.of(context).textTheme.bodyText1!.copyWith(
-                              fontSize: 18, color: primarySwatch[900]),
-                    )),
+                      ),
+                      if (!isLeading!) icon!,
+                    ],
+                  )
+                : Text(
+                    lable ?? "Button",
+                    style: textStyle ??
+                        Theme.of(context)
+                            .textTheme
+                            .bodyText1!
+                            .copyWith(fontSize: 18, color: primarySwatch[900]),
+                  ),
+          ),
         ),
       ),
     );

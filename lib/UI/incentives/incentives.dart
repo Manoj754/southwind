@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:southwind/UI/components/common_appbar.dart';
 import 'package:southwind/UI/components/common_button.dart';
 import 'package:southwind/UI/theme/apptheme.dart';
+import 'package:southwind/routes/routes.dart';
 
 class Incentives extends StatefulWidget {
   const Incentives({Key? key}) : super(key: key);
@@ -13,7 +15,11 @@ class Incentives extends StatefulWidget {
 
 class _IncentivesState extends State<Incentives> {
   int selectedIndex = 0;
-  List<String> tabs = ['New', 'Most Popular', 'Purchased'];
+  List<String> tabs = [
+    'New',
+    'Most Popular',
+    'Purchased',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +81,6 @@ class _IncentivesState extends State<Incentives> {
                     onTap: () {
                       setState(() {
                         selectedIndex = i;
-                        // showsecondpop = !showsecondpop;
                       });
                     },
                     child: Material(
@@ -145,31 +150,35 @@ class _IncentivesState extends State<Incentives> {
                         SizedBox(
                           width: 20,
                         ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "${incentivesList[index].name}",
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 16,
-                                  color: Colors.black),
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Text(
-                              "${incentivesList[index].tokens} TOKENS",
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                  color: Colors.grey, height: 1, fontSize: 14),
-                            )
-                          ],
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "${incentivesList[index].name}",
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                    color: Colors.black),
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                "${incentivesList[index].tokens} TOKENS",
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                    color: Colors.grey,
+                                    height: 1,
+                                    fontSize: 14),
+                              )
+                            ],
+                          ),
                         ),
-                        Spacer(),
+                        // Spacer(),
                         if (selectedIndex != 2)
                           GestureDetector(
                             onTap: () {
@@ -339,7 +348,7 @@ class _BuyTabState extends State<BuyTab> {
     final size = MediaQuery.of(context).size;
     return SafeArea(
         child: Scaffold(
-      appBar: AppBar(),
+      appBar: CommonAppbar(),
       body: Container(
         margin: EdgeInsets.symmetric(
           horizontal: 5,
