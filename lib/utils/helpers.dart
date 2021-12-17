@@ -35,6 +35,6 @@ class Utils {
   }
 }
 
-showToast(String message) {
-  Fluttertoast.showToast(msg: message);
+showToast(String s) {
+  Fluttertoast.showToast(msg: s, gravity: ToastGravity.SNACKBAR);
 }

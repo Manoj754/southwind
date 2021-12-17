@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:southwind/UI/auth_wrapper.dart';
 import 'package:southwind/UI/home/career_tab/page/questions_page.dart';
 import 'package:southwind/UI/home/chat_tab/group_Info.dart';
 import 'package:southwind/UI/home/chat_tab/group_chat_screen.dart';
@@ -26,6 +27,7 @@ class Routes {
   static const String congrat_Tab = "/CongratTab";
   static const String customDrawer = "/customerDrawer";
   static const String login = "log_in";
+  static const String authWrapper = "auth_wrapper";
   static const String history = "history";
 
   static Route<dynamic> onRouteGenerate(RouteSettings settings) {
@@ -69,6 +71,9 @@ class Routes {
           break;
         case Routes.history:
           page = History();
+          break;
+        case Routes.authWrapper:
+          page = AuthWrapper();
           break;
         default:
           page = Container(

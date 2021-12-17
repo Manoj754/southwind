@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:southwind/data/providers/providers.dart';
 import '../UI/login/log_in.dart';
 import 'package:southwind/UI/theme/apptheme.dart';
 import 'package:southwind/routes/routes.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 enum DrawerIndex {
   Home,
@@ -609,8 +611,9 @@ class _HomeDrawerState extends State<HomeDrawer> {
                         color: Colors.black,
                       ),
                       onTap: () {
-                        Navigator.of(context).pushNamedAndRemoveUntil(
-                            Routes.login, (route) => false);
+                        context.read(authProvider).logout();
+                        // Navigator.of(context).pushNamedAndRemoveUntil(
+                        //     Routes.login, (route) => false);
                       },
                     ),
                   ),

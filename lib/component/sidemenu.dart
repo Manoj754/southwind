@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:southwind/component/sidemenubar.dart';
-import 'package:southwind/component/util.dart';
+import 'package:southwind/utils/helpers.dart';
 import 'package:southwind/constant/slidedrection.dart';
 
 class SliderMenuContainer extends StatefulWidget {

@@ -44,6 +44,10 @@ dependencies:
   better_player: ^0.0.73
   fluttertoast: ^8.0.3
   font_awesome_flutter: ^9.2.0
+  dio: any
+  flutter_hooks: ^0.17.0
+  hooks_riverpod: ^0.14.0
+  # fluttertoast: ^8.0.8
 dev_dependencies:
   flutter_test:
     sdk: flutter
