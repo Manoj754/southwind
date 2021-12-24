@@ -182,29 +182,33 @@ class _Questions_TabState extends State<Questions_Tab> {
               child: Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 8, vertical: 18),
-                child: CommonButton(
-                  isExpanded: true,
-                  lable: "Answer it",
-                  isLeading: true,
-                  ontap: () {
-                    setState(() {
-                      if (currentQuestion < Questions.length) {
-                        currentQuestion++;
-                      }
+                child: Row(
+                  children: [
+                    CommonButton(
+                      isExpanded: true,
+                      lable: "Answer it",
+                      isLeading: true,
+                      ontap: () {
+                        setState(() {
+                          if (currentQuestion < Questions.length) {
+                            currentQuestion++;
+                          }
 
-                      animateToQuestion();
-                      if (currentQuestion == Questions.length) {
-                        Navigator.pushNamed(context, Routes.question_summary);
-                        // Navigator.push(context,
-                        //     MaterialPageRoute(builder: (context) {
-                        //   return SummaryTab(
-                        //     totalquestion: Questions.length,
-                        //   );
-                        // }));
-                      }
-                    });
-                    // animateToQuestion();
-                  },
+                          animateToQuestion();
+                          if (currentQuestion == Questions.length) {
+                            Navigator.pushNamed(context, Routes.question_summary);
+                            // Navigator.push(context,
+                            //     MaterialPageRoute(builder: (context) {
+                            //   return SummaryTab(
+                            //     totalquestion: Questions.length,
+                            //   );
+                            // }));
+                          }
+                        });
+                        // animateToQuestion();
+                      },
+                    ),
+                  ],
                 ),
                 // Row(
                 //   children: [
